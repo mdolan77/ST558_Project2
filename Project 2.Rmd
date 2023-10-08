@@ -4,7 +4,7 @@ author: "Michael Dolan"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, fig.path='C:/Users/dolan/Desktop/NC State Grad Program/ST558/Project 2/ST558_Project2/README_files/figure-gfm/')
 ```
 
 ## GitHub Documents

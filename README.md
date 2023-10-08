@@ -28,7 +28,7 @@ summary(cars)
 
 You can also embed plots, for example:
 
-![](C:\Users\dolan\Desktop\NC%20State%20Grad%20Program\ST558\Project%202\ST558_Project2\README_files/figure-gfm/pressure-1.png)<!-- -->
+![](C:/Users/dolan/Desktop/NC%20State%20Grad%20Program/ST558/Project%202/ST558_Project2/README_files/figure-gfm/pressure-1.png)<!-- -->
 
 Note that the `echo = FALSE` parameter was added to the code chunk to
 prevent printing of the R code that generated the plot.
