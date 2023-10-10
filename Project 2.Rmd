@@ -7,6 +7,299 @@ author: "Michael Dolan"
 knitr::opts_chunk$set(echo = TRUE, fig.path='Figs/')
 ```
 
+# Required Packages
+```{r}
+library(httr)
+library(jsonlite)
+library(tidyverse)
+```
+
+```{r}
+Player_Search <- GET(url="https://www.balldontlie.io/api/v1/teams/?search=jayson+tatum")
+str(Players, max.level=1)
+Player <- fromJSON(rawToChar(Player_Search$content))
+str(parsed, max.level=1)
+Player$data$team
+PlayerID <- Player$data[1,1]
+
+Stats_Query <- GET(url =
+               "https://www.balldontlie.io/api/v1/stats/?per_page=100&page=2&seasons[]=2022&player_ids[]=434")
+Stats <- fromJSON(rawToChar(Stats_Query$content))
+Stats$data$game
+```
+
+```{r}
+player_game_stats <- function(first_name=NULL, last_name=NULL,
+                              season=NULL, postseason=NULL,
+                              stats=everything(), ...){
+  
+              # Return Error message if First and Last name not specified
+                      if (is.null(first_name) | is.null(last_name)) {message("Error: First and last name of an NBA player must be specified.")}
+                      else {
+                        
+                      # Find the player's PlayerID to be used later
+                      player_search_url <- paste("https://www.balldontlie.io/api/v1/players/?search", paste(first_name, last_name, sep = "+"), sep = "=")
+                      player_search <- GET(url=player_search_url)
+                      player_info <- fromJSON(rawToChar(player_search$content))
+                      playerID <- player_info$data[1,1]
+                      
+                      # Use the PlayerID to return the players stats for
+                      # every game in a season or several seasons
+                      stats_url <- paste0("https://www.balldontlie.io/api/v1/stats/?per_page=100",
+                                if_else(is.null(season), "",
+                                       paste0("&seasons[]=",
+                                         paste(season, collapse="&seasons[]=")
+                                        )),
+                                paste0("&player_ids[]=", playerID),
+                                ifelse(is.null(postseason), "",
+                                       paste0("&postseason=", postseason))
+                                ) 
+                      player_stats_api <- GET(url = stats_url)
+                      player_content <-
+                        fromJSON(rawToChar(player_stats_api$content))
+                      player_stats1 <- player_content$data
+                      
+                  # This API only allows 100 rows to be returned at a time,
+                  # so if there are more than 100, a loop is initialized.
+                  # The loop pulls the data for each page after the first,
+                  # and stores all pages into a list.
+                      total_pages <- player_content$meta$total_pages
+                      if (total_pages > 1) {
+                        page_list <- list()
+                        page_list[[1]] <- player_stats1
+                        for (i in 2:total_pages) {
+                          stats_url <- paste0("https://www.balldontlie.io/api/v1/stats/?per_page=100",
+                                paste0("&page=", i),
+                                if_else(is.null(season), "",
+                                       paste0("&seasons[]=",
+                                         paste(season, collapse="&seasons[]=")
+                                        )),
+                                paste0("&player_ids[]=", playerID),
+                                ifelse(is.null(postseason), "",
+                                       paste0("&postseason=", postseason))
+                                ) 
+                      player_stats_api <- GET(url = stats_url)
+                      player_content <-
+                        fromJSON(rawToChar(player_stats_api$content))
+                        page_list[[i]] <- player_content$data
+                        }
+                        
+                        # Each dataset in the list is combine vertically
+                        player_stats <- bind_rows(page_list)
+                      }
+                      
+                        # If there is only one page,
+                        # that page is stored as player_stats
+                      else{player_stats <- player_stats1}
+                      
+                      # Create a cleaner date variable
+                      player_stats$date <-
+                        substr(player_stats$game$date, 1, 10)
+                      
+                      # Create a Home/Away game variable
+                      player_stats$home_away <-
+                      if_else(player_stats$team$id == player_stats$game$home_team_id, "Home", "Away")
+                      
+                      # Create a Win/Loss game variable
+                      player_stats$win_loss <-
+                        if_else((player_stats$home_away == "Home" &
+                                player_stats$game$home_team_score > 
+                                player_stats$game$visitor_team_score) | 
+                                (player_stats$home_away == "Away" &
+                                player_stats$game$visitor_team_score > 
+                                player_stats$game$home_team_score),
+                                "Win", "Loss")
+                      
+                      # Create visible score variables
+                      player_stats$team_score <- if_else(
+                                player_stats$home_away == "Home",
+                                player_stats$game$home_team_score,
+                                player_stats$game$visitor_team_score)
+                      player_stats$opponent_score <- if_else(
+                                player_stats$home_away == "Home",
+                                player_stats$game$visitor_team_score,
+                                player_stats$game$home_team_score)
+                      
+                      # Create a visible Post-Season variable
+                      player_stats$post_season <- player_stats$game$postseason
+                      
+                      # Create a visible player_team variable
+                      player_stats$player_team <- player_stats$team$full_name
+                      
+                      # Create opponent_team_id variable
+                      player_stats$opponent_team_id <-
+                        if_else(player_stats$home_away=="Home",
+                                player_stats$game$visitor_team_id,
+                                player_stats$game$home_team_id)
+                      
+                      # Create an opponent_team variable
+                      # Note: The original dataset only provides team ID
+                      # for the opposing team.
+                      # Instead of pulling a team dataset with another
+                      # API URL and merging the two datasets, which would wear
+                      # on the API, I decided to create a codebook of teams
+                      # since there are only 30 that need hardcoding.
+                      player_stats$opponent_team <-
+                      if_else(player_stats$opponent_team_id==1,
+                              "Atlanta Hawks",
+                      if_else(player_stats$opponent_team_id==2,
+                              "Boston Celtics",
+                      if_else(player_stats$opponent_team_id==3,
+                              "Brooklyn Nets",
+                      if_else(player_stats$opponent_team_id==4,
+                              "Charlotte Hornets",
+                      if_else(player_stats$opponent_team_id==5,
+                              "Chicago Bulls",
+                      if_else(player_stats$opponent_team_id==6,
+                              "Cleveland Cavaliers",
+                      if_else(player_stats$opponent_team_id==7,
+                              "Dallas Mavericks",
+                      if_else(player_stats$opponent_team_id==8,
+                              "Denver Nuggets",
+                      if_else(player_stats$opponent_team_id==9,
+                              "Detroit Pistons",
+                      if_else(player_stats$opponent_team_id==10,
+                              "Golden State Warriors",
+                      if_else(player_stats$opponent_team_id==11,
+                              "Houston Rockets",
+                      if_else(player_stats$opponent_team_id==12,
+                              "Indiana Pacers",
+                      if_else(player_stats$opponent_team_id==13,
+                              "LA Clippers",
+                      if_else(player_stats$opponent_team_id==14,
+                              "Los Angeles Lakers",
+                      if_else(player_stats$opponent_team_id==15,
+                              "Memphis Grizzlies",
+                      if_else(player_stats$opponent_team_id==16,
+                              "Miami Heat",
+                      if_else(player_stats$opponent_team_id==17,
+                              "Milwaukee Bucks",
+                      if_else(player_stats$opponent_team_id==18,
+                              "Minnesota Timberwolves",
+                      if_else(player_stats$opponent_team_id==19,
+                              "New Orleans Pelicans",
+                      if_else(player_stats$opponent_team_id==20,
+                              "New York Knicks",
+                      if_else(player_stats$opponent_team_id==21,
+                              "Oklahoma City Thunder",
+                      if_else(player_stats$opponent_team_id==22,
+                              "Orlando Magic",
+                      if_else(player_stats$opponent_team_id==23,
+                              "Philadelphia 76ers",
+                      if_else(player_stats$opponent_team_id==24,
+                              "Phoenix Suns",
+                      if_else(player_stats$opponent_team_id==25,
+                              "Portland Trail Blazers",
+                      if_else(player_stats$opponent_team_id==26,
+                              "Sacramento Kings",
+                      if_else(player_stats$opponent_team_id==27,
+                              "San Antonio Spurs",
+                      if_else(player_stats$opponent_team_id==28,
+                              "Toronto Raptors",
+                      if_else(player_stats$opponent_team_id==29,
+                              "Utah Jazz",
+                      if_else(player_stats$opponent_team_id==30,
+                              "Washington Wizards", "ERROR"
+                      ))))))))))))))))))))))))))))))
+                      
+                      # Sort games by date
+                      player_stats_sorted <- arrange(player_stats, date)
+                      
+                      # Select important stats and reorder columns
+                      player_stats_clean <- player_stats_sorted %>%
+                        select(date, min, pts, reb, ast, stl, blk, fgm, fga,
+                               fg_pct, fg3m, fg3a, fg3_pct, ftm, fta, ft_pct,
+                               oreb, dreb, turnover, pf, home_away, win_loss,
+                               player_team, team_score, opponent_team,
+                               opponent_score, post_season)
+                      
+                      # Allow user to select variables and order,
+                      # but always keeping the date for reference
+                      player_stats_final <- player_stats_clean %>%
+                        select(date, stats)
+                      
+                      # Print final player stats
+                      player_stats_final
+                      }
+}
+```
+
+```{r}
+tatum_2022 <- player_game_stats(first_name = "jayson", last_name = "tatum", stats = "pts")
+tatum_2022
+```
+
+```{r}
+player_season_stats <- function(first_name=NULL, last_name=NULL,
+                              season=NULL, stats=everything(), ...){
+  
+              # Return Error message if First and Last name not specified
+                      if (is.null(first_name) | is.null(last_name)) {message("Error: First and last name of an NBA player must be specified.")}
+                      else {
+                        
+                      # Find the player's PlayerID to be used later
+                      player_search_url <- paste("https://www.balldontlie.io/api/v1/players/?search", paste(first_name, last_name, sep = "+"), sep = "=")
+                      player_search <- GET(url=player_search_url)
+                      player_info <- fromJSON(rawToChar(player_search$content))
+                      playerID <- player_info$data[1,1]
+                      
+                      # Use the PlayerID to return the players average stats
+                      # for a particular season or several seasons.
+                      # If no season is specified, it returns the current season.
+                      if (is.null(season)) {
+                        stats_url <- paste0("https://www.balldontlie.io/api/v1/season_averages?",
+                                       paste0("&player_ids[]=", playerID)) 
+                      player_stats_api <- GET(url = stats_url)
+                      player_content <-
+                        fromJSON(rawToChar(player_stats_api$content))
+                      player_stats <- player_content$data
+                      } 
+                      
+                      
+                      else{
+                        season_list <- list()
+                        for (i in season) {
+                      stats_url <- paste0("https://www.balldontlie.io/api/v1/season_averages?",
+                                       paste0("&season=", i),
+                                paste0("&player_ids[]=", playerID)) 
+                      player_stats_api <- GET(url = stats_url)
+                      player_content <-
+                        fromJSON(rawToChar(player_stats_api$content))
+                      season_list[[i]] <- player_content$data
+                        }
+                        
+                      # Each dataset in the list is combine vertically
+                      player_stats <- bind_rows(season_list)
+                      }
+                      
+                      # Sort games by season from most recent down
+                      player_stats_sorted <- arrange(player_stats, desc(season))
+                      
+                      # Select important stats and reorder columns
+                      player_stats_clean <- player_stats_sorted %>%
+                        select(season, games_played, min, pts, reb, ast, stl,
+                               blk, fgm, fga, fg_pct, fg3m, fg3a, fg3_pct,
+                               ftm, fta, ft_pct, oreb, dreb, turnover, pf)
+                      
+                      # Allow user to select variables and order,
+                      # but always keeping the season for reference
+                      player_stats_final <- player_stats_clean %>%
+                        select(season, stats)
+                      
+                      # Print final player stats
+                      player_stats_final
+                      }
+}
+
+
+```
+
+```{r}
+tatum <- player_season_stats(first_name = "jayson", last_name = "tatum", season=c(2000:2023), stats = "games_played")
+tatum
+```
+
+
 ## GitHub Documents
 
 This is an R Markdown format used for publishing markdown documents to GitHub. When you click the **Knit** button all R code chunks are run and a markdown file (.md) suitable for publishing to GitHub is generated.
