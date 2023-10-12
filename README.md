@@ -5,6 +5,10 @@ Michael Dolan
 - [Introduction](#introduction)
 - [Required Packages](#required-packages)
 - [Functions](#functions)
+  - [Player Game Stats Function](#player-game-stats-function)
+  - [Player_Game_Stats Example](#player_game_stats-example)
+  - [Player Average Season Stats
+    Function](#player-average-season-stats-function)
   - [Player_Season_Stats Example](#player_season_stats-example)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
   - [Game Statistics Dataset
@@ -74,7 +78,11 @@ Stats$data$game
 
 # Functions
 
-  `player_game_stats`   This function returns individual game statistics
+ 
+
+## Player Game Stats Function
+
+`player_game_stats`   This function returns individual game statistics
 for a particular player, including the game score, the opponent, and the
 outcome of each game. Preseason games are excluded.
 
@@ -325,7 +333,11 @@ player_game_stats <- function(first_name=NULL, last_name=NULL,
 }
 ```
 
-  Here is an example of this function, pulling the post-season games for
+ 
+
+## Player_Game_Stats Example
+
+Here is an example of this function, pulling the post-season games for
 Lebron James when he was on the Miami Heat from 2010-2014.
 
 ``` r
@@ -354,7 +366,9 @@ Lebron_Heat_Playoffs
     ## #   home_away <chr>, win_loss <chr>, player_team <chr>, team_score <int>, opponent_team <chr>,
     ## #   opponent_score <int>, post_season <lgl>, season <fct>
 
-    \## Player Average Season Stats Function
+   
+
+## Player Average Season Stats Function
 
 `player_season_stats`   This function returns a tibble of average
 statistics for a particular player by season.

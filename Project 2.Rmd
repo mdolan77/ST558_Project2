@@ -48,6 +48,9 @@ Stats$data$game
 
 # Functions
 \  
+
+## Player Game Stats Function
+
 `player_game_stats`
 \  
 This function returns individual game statistics for a particular player, including the game score, the opponent, and the outcome of each game. Preseason games are excluded.
@@ -278,6 +281,8 @@ player_game_stats <- function(first_name=NULL, last_name=NULL,
 }
 ```
 \  
+
+## Player_Game_Stats Example
 Here is an example of this function, pulling the post-season games for Lebron James when he was on the Miami Heat from 2010-2014.
 ```{r}
 Lebron_Heat_Playoffs <- player_game_stats(first_name = "lebron",
@@ -288,6 +293,7 @@ Lebron_Heat_Playoffs
 ```
 \  
 \  
+
 ## Player Average Season Stats Function
 
 `player_season_stats`
