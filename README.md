@@ -5,10 +5,21 @@ Michael Dolan
 - [Introduction](#introduction)
 - [Required Packages](#required-packages)
 - [Functions](#functions)
+  - [Player_Season_Stats Example](#player_season_stats-example)
+- [Exploratory Data Analysis](#exploratory-data-analysis)
   - [Game Statistics Dataset
     Creation](#game-statistics-dataset-creation)
   - [Contingency Tables of Season, Wins/Losses, and
     Post-Season](#contingency-tables-of-season-winslosses-and-post-season)
+  - [Box Plots and Numerical Summaries of
+    Points](#box-plots-and-numerical-summaries-of-points)
+  - [Box Plots and Numerical Summaries of Field Goal
+    Percentage](#box-plots-and-numerical-summaries-of-field-goal-percentage)
+  - [Density Plots and Numerical Summaries of 3-Point Field Goal
+    Percentage](#density-plots-and-numerical-summaries-of-3-point-field-goal-percentage)
+  - [Assists-to-Turnovers
+    Scatterplots](#assists-to-turnovers-scatterplots)
+  - [Spider Plot of Average Stats](#spider-plot-of-average-stats)
   - [Conclusion](#conclusion)
 
 # Introduction
@@ -454,9 +465,13 @@ player_season_stats <- function(first_name=NULL, last_name=NULL,
                       }
 ```
 
-  \## Player_Season_Stats Example Here is an example of this function,
-pulling Michael Jordan’s average points, assists, rebounds, blocks, and
-steals for every season in his career.
+ 
+
+## Player_Season_Stats Example
+
+Here is an example of this function, pulling Michael Jordan’s average
+points, assists, rebounds, blocks, and steals for every season in his
+career.
 
 ``` r
 Michael_Jordan_avgs <- player_season_stats(first_name = "Michael",
@@ -485,11 +500,15 @@ Michael_Jordan_avgs
     ## 14 1985    22.7  2.94  3.56  1.17  2.06
     ## 15 1984    28.2  5.87  6.51  0.84  2.39
 
-  \# Exploratory Data Analysis To demonstrate these functions, I will be
-performing a basic exploratory data analysis using data from calls to
-the above two functions. The analysis will be about one particular NBA
-player, Jayson Tatum, and look at his stats throughout his career to
-investigate the following questions:
+ 
+
+# Exploratory Data Analysis
+
+To demonstrate these functions, I will be performing a basic exploratory
+data analysis using data from calls to the above two functions. The
+analysis will be about one particular NBA player, Jayson Tatum, and look
+at his stats throughout his career to investigate the following
+questions:
 
 1.  Has Jayson Tatum improved as a player since he has come into the
     league?  
@@ -627,18 +646,21 @@ table(tatum_all_games$post_season, tatum_all_games$win_loss, tatum_all_games$sea
     ##   FALSE   25  57
     ##   TRUE     9  11
 
-  \## Box Plots and Numerical Summaries of Points The below code creates
-a numerical summary of Tatum’s mean points the regular season and the
-post-season (calculated from the individual games dataset) as well as
-standard deviations for each season. This data is also visualize with
-box plots for each season. One question in analyzing any sports player
-is consistency. How much do their performances vary from night-to-night?
-The below data and plots show that, although Tatum’s regular season
-points have grown consistently from year-to-year, he standard deviation
-has also trended upward, indicating that he is less consistent. In the
-playoffs, however, the box plots show that Tatum’s point variability has
-not increases dramatically as he has progressed, meaning that he is
-reasonably consistent in the post-season.
+ 
+
+## Box Plots and Numerical Summaries of Points
+
+The below code creates a numerical summary of Tatum’s mean points the
+regular season and the post-season (calculated from the individual games
+dataset) as well as standard deviations for each season. This data is
+also visualize with box plots for each season. One question in analyzing
+any sports player is consistency. How much do their performances vary
+from night-to-night? The below data and plots show that, although
+Tatum’s regular season points have grown consistently from year-to-year,
+he standard deviation has also trended upward, indicating that he is
+less consistent. In the playoffs, however, the box plots show that
+Tatum’s point variability has not increases dramatically as he has
+progressed, meaning that he is reasonably consistent in the post-season.
 
 ``` r
 tatum_all_games %>% group_by(post_season, season) %>% summarize(mean = mean(pts, na.rm = TRUE), sd = sd(pts, na.rm = TRUE))
@@ -669,16 +691,19 @@ ggplot(tatum_all_games, aes(x=season, y=pts)) +
   facet_wrap(~post_season)
 ```
 
-![](Figs/unnamed-chunk-14-1.png)<!-- -->   \## Box Plots and Numerical
-Summaries of Field Goal Percentage We can also run the same analysis on
-field goal percentage. Field goal percentage can be used to see how
-efficient a player is, since point could just be the result of taking
-more shots and not making a greater proportion of shots. This analysis
-shows that Tatum’s field goal percentage in the regular season has
-decreased slightly since his first season, and his most recent year has
-been his worst and least consistent yet. However, during the post-season
-his field goal percentage was one of his best, with a moderate level of
-variability compared to previous seasons.
+![](Figs/unnamed-chunk-13-1.png)<!-- -->  
+
+## Box Plots and Numerical Summaries of Field Goal Percentage
+
+We can also run the same analysis on field goal percentage. Field goal
+percentage can be used to see how efficient a player is, since point
+could just be the result of taking more shots and not making a greater
+proportion of shots. This analysis shows that Tatum’s field goal
+percentage in the regular season has decreased slightly since his first
+season, and his most recent year has been his worst and least consistent
+yet. However, during the post-season his field goal percentage was one
+of his best, with a moderate level of variability compared to previous
+seasons.
 
 ``` r
 tatum_all_games %>% group_by(post_season, season) %>% summarize(mean = mean(fg_pct, na.rm = TRUE), sd = sd(fg_pct, na.rm = TRUE))
@@ -709,14 +734,16 @@ ggplot(tatum_all_games, aes(x=season, y=fg_pct)) +
   facet_wrap(~post_season)
 ```
 
-![](Figs/unnamed-chunk-15-1.png)<!-- -->   \## Density Plots and
-Numerical Summaries of 3-Point Field Goal Percentage The below code runs
-the same analysis on 3-point field goal percentage (a important part of
-Tatum’s game), but swaps out the box plots for density plots. The
-summary statistics show that Tatum’s regular season 3-point percentage
-has been trending downward, but his 3-point percentage in the playoffs
-has been trending upward. This supports the idea that Tatum elevates his
-game during the playoffs.
+![](Figs/unnamed-chunk-14-1.png)<!-- -->  
+
+## Density Plots and Numerical Summaries of 3-Point Field Goal Percentage
+
+The below code runs the same analysis on 3-point field goal percentage
+(a important part of Tatum’s game), but swaps out the box plots for
+density plots. The summary statistics show that Tatum’s regular season
+3-point percentage has been trending downward, but his 3-point
+percentage in the playoffs has been trending upward. This supports the
+idea that Tatum elevates his game during the playoffs.
 
 ``` r
 tatum_all_games %>% group_by(post_season, season) %>% summarize(mean = mean(fg3_pct, na.rm = TRUE), sd = sd(fg3_pct, na.rm = TRUE))
@@ -748,19 +775,22 @@ ggplot(tatum_all_games, aes(x=fg3_pct)) +
   facet_wrap(~season)
 ```
 
-![](Figs/unnamed-chunk-16-1.png)<!-- -->   \## Assists-to-Turnovers
-Scatterplots Another important part of any NBA players game is
-facilitation and ball security. This is commonly analyzed with the
-assist-to-turnover ratio, which looks at how many assist a player gets
-by passing another player the ball who then scores, compared to how many
-times the player loses the ball to the opposing team. The below code
-creates several scatterplots by season, with turnovers on the x-axis and
-assists on the y-axis. These plots show that as Tatum’s assist numbers
-increased over his career, generally so did his turnovers, which means
-there may still be room for improvement in his ball security. However,
-in his most recent post-season Tatum did not have any games with over 5
-turnovers, which does show some increased ball security in the
-post-season as well as seasonal improvement.
+![](Figs/unnamed-chunk-15-1.png)<!-- -->  
+
+## Assists-to-Turnovers Scatterplots
+
+Another important part of any NBA players game is facilitation and ball
+security. This is commonly analyzed with the assist-to-turnover ratio,
+which looks at how many assist a player gets by passing another player
+the ball who then scores, compared to how many times the player loses
+the ball to the opposing team. The below code creates several
+scatterplots by season, with turnovers on the x-axis and assists on the
+y-axis. These plots show that as Tatum’s assist numbers increased over
+his career, generally so did his turnovers, which means there may still
+be room for improvement in his ball security. However, in his most
+recent post-season Tatum did not have any games with over 5 turnovers,
+which does show some increased ball security in the post-season as well
+as seasonal improvement.
 
 ``` r
 ggplot(tatum_all_games, aes(x=ast, y=turnover)) + 
@@ -770,9 +800,12 @@ ggplot(tatum_all_games, aes(x=ast, y=turnover)) +
   facet_wrap(~ season)
 ```
 
-![](Figs/unnamed-chunk-17-1.png)<!-- -->   \## Spider Plot of Average
-Stats Finally, lets look at some average statistics not yet discussed
-that can be neatly displayed together. The below code calls the
+![](Figs/unnamed-chunk-16-1.png)<!-- -->  
+
+## Spider Plot of Average Stats
+
+Finally, lets look at some average statistics not yet discussed that can
+be neatly displayed together. The below code calls the
 `player_season_stats` function and uses that data to create a spider
 plot by season of average field goal makes, 3-point makes, 3-point
 attempts, free-throw makes, free-throw attempts, assist, rebounds, and
@@ -804,7 +837,7 @@ tatum_season_avgs
 ggradar(tatum_season_avgs, group.point.size = 2, values.radar = c("0", "","10"), grid.mid = 5, grid.max = 10)
 ```
 
-![](Figs/unnamed-chunk-18-1.png)<!-- -->
+![](Figs/unnamed-chunk-17-1.png)<!-- -->  
 
 ## Conclusion
 
