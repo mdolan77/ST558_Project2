@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+padding-top: 0px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="project-2">Project 2</h1>
+<p>Michael Dolan</p>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#required-packages">Required Packages</a></li>
+<li><a href="#functions">Functions</a>
+<ul>
+<li><a href="#player-game-stats-function">Player Game Stats
+Function</a></li>
+<li><a href="#player_game_stats-example">Player_Game_Stats
+Example</a></li>
+<li><a href="#player-average-season-stats-function">Player Average
+Season Stats Function</a></li>
+<li><a href="#player_season_stats-example">Player_Season_Stats
+Example</a></li>
+</ul></li>
+<li><a href="#exploratory-data-analysis">Exploratory Data Analysis</a>
+<ul>
+<li><a href="#game-statistics-dataset-creation">Game Statistics Dataset
+Creation</a></li>
+<li><a href="#contingency-tables-of-season-winslosses-and-post-season">Contingency
+Tables of Season, Wins/Losses, and Post-Season</a></li>
+<li><a href="#box-plots-and-numerical-summaries-of-points">Box Plots and
+Numerical Summaries of Points</a></li>
+<li><a href="#box-plots-and-numerical-summaries-of-field-goal-percentage">Box
+Plots and Numerical Summaries of Field Goal Percentage</a></li>
+<li><a href="#density-plots-and-numerical-summaries-of-3-point-field-goal-percentage">Density
+Plots and Numerical Summaries of 3-Point Field Goal Percentage</a></li>
+<li><a href="#assists-to-turnovers-scatterplots">Assists-to-Turnovers
+Scatterplots</a></li>
+<li><a href="#spider-plot-of-average-stats">Spider Plot of Average
+Stats</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul></li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>This is a vignette describing how to utilize functions that were
+created to pull data from the balldontlie API. This database provides
+access to statistics from the NBA, consisting of season averages as well
+as individual game stats for players from 1946 to present. This is a
+free API that does not require an API key to access.  </p>
+<h1 id="required-packages">Required Packages</h1>
+<p>The below packages are required to run the functions.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p> </p>
+<p>The ggradar package was also used below to create some
+spider-plots.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(ggradar)</span></code></pre></div>
+<p>  This is the code used to install the ggradar package if it has not
+been installed previously.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;ricardo-bion/ggradar&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>Player_Search <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="at">url=</span><span class="st">&quot;https://www.balldontlie.io/api/v1/players/?search=larry+nance&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">str</span>(Players, <span class="at">max.level=</span><span class="dv">1</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>Player <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">rawToChar</span>(Player_Search<span class="sc">$</span>content))</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">str</span>(Player, <span class="at">max.level=</span><span class="dv">1</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>Player<span class="sc">$</span>data</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>PlayerID <span class="ot">&lt;-</span> Player<span class="sc">$</span>data[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>Stats_Query <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="at">url =</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>               <span class="st">&quot;https://www.balldontlie.io/api/v1/stats/?per_page=100&amp;page=2&amp;seasons[]=2022&amp;player_ids[]=434&quot;</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>Stats <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">rawToChar</span>(Stats_Query<span class="sc">$</span>content))</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>Stats<span class="sc">$</span>data<span class="sc">$</span>game</span></code></pre></div>
+<p> </p>
+<h1 id="functions">Functions</h1>
+<p> </p>
+<h2 id="player-game-stats-function">Player Game Stats Function</h2>
+<p><code>player_game_stats</code>   This function returns individual
+game statistics for a particular player, including the game score, the
+opponent, and the outcome of each game. Preseason games are
+excluded.</p>
+<p>This function takes in the following inputs:</p>
+<ul>
+<li><p><strong>first_name</strong>: The first name of the player the
+user is searching for. There is no default for this input, and if a name
+is not supplied the function returns an error message prompting the user
+to input a name.</p></li>
+<li><p><strong>last_name</strong>: The last name of the player you are
+searching for. Similarly to first name, if a name is not supplied the
+function returns an error message prompting the user to input a
+name.</p></li>
+<li><p><strong>season</strong>: The season or group of seasons the user
+want data for. The season is indicated by the year that the season
+started, so if the user wants data on the 2012-2013 season, they would
+input 2012. If the user is searching for multiple seasons, this should
+be input as a vector. If no season is supplied, the default is to return
+all seasons and all games for that player. If seasons are specified for
+a player that did not play in, the function will return only the seasons
+the the player did play. If only seasons that the player did not play
+are specified, or the current season has not officially started and no
+season is specified, then the function returns an error.</p></li>
+<li><p><strong>stats</strong>: The desired stats variables that the user
+would like returned in the dataset. This should be input as a vector if
+the user is seeking multiple stats. The date of each game is always
+included for reference. If no stats are supplied, the default is to
+provide the full set of variables.</p></li>
+<li><p><strong>postseason</strong>: This is a TRUE or FALSE input that
+provides only postseason games if TRUE and only non-postseason games
+(regular season, play-in tournement, etc.) if FALSE. If this argument is
+not provided, the default is to provide all games.</p></li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>player_game_stats <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">first_name=</span><span class="cn">NULL</span>, <span class="at">last_name=</span><span class="cn">NULL</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>                              <span class="at">season=</span><span class="cn">NULL</span>, <span class="at">stats=</span><span class="fu">everything</span>(),</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>                              <span class="at">postseason=</span><span class="cn">NULL</span>, ...){</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  </span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>              <span class="co"># Return Error message if First and Last name not specified</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>                      <span class="cf">if</span> (<span class="fu">is.null</span>(first_name) <span class="sc">|</span> <span class="fu">is.null</span>(last_name))</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>                        {<span class="fu">message</span>(<span class="st">&quot;Error: First and last name of an NBA player must be specified.&quot;</span>)}</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>                      <span class="cf">else</span> {</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>                        </span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>                      <span class="co"># Find the player&#39;s PlayerID to be used later</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>                      player_search_url <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;https://www.balldontlie.io/api/v1/players/?search&quot;</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>                      <span class="fu">paste</span>(first_name, last_name, <span class="at">sep =</span> <span class="st">&quot;+&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;=&quot;</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>                      player_search <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="at">url=</span>player_search_url)</span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>                      player_info <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">rawToChar</span>(player_search<span class="sc">$</span>content))</span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>                      playerID <span class="ot">&lt;-</span> player_info<span class="sc">$</span>data[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>                      </span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>                      <span class="co"># Use the PlayerID to return the players stats for</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a>                      <span class="co"># every game in a season or several seasons</span></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a>                      stats_url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;https://www.balldontlie.io/api/v1/stats/?per_page=100&quot;</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>                                <span class="fu">if_else</span>(<span class="fu">is.null</span>(season), <span class="st">&quot;&quot;</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>                                       <span class="fu">paste0</span>(<span class="st">&quot;&amp;seasons[]=&quot;</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a>                                         <span class="fu">paste</span>(season, <span class="at">collapse=</span><span class="st">&quot;&amp;seasons[]=&quot;</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a>                                        )),</span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a>                                <span class="fu">paste0</span>(<span class="st">&quot;&amp;player_ids[]=&quot;</span>, playerID),</span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a>                                <span class="fu">ifelse</span>(<span class="fu">is.null</span>(postseason), <span class="st">&quot;&quot;</span>,</span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a>                                       <span class="fu">paste0</span>(<span class="st">&quot;&amp;postseason=&quot;</span>, postseason))</span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a>                                ) </span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a>                      player_stats_api <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="at">url =</span> stats_url)</span>
+<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a>                      player_content <span class="ot">&lt;-</span></span>
+<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a>                        <span class="fu">fromJSON</span>(<span class="fu">rawToChar</span>(player_stats_api<span class="sc">$</span>content))</span>
+<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a>                      player_stats1 <span class="ot">&lt;-</span> player_content<span class="sc">$</span>data</span>
+<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a>                      </span>
+<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a>                  <span class="co"># This API only allows 100 rows to be returned at a time,</span></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a>                  <span class="co"># so if there are more than 100, a loop is initialized.</span></span>
+<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a>                  <span class="co"># The loop pulls the data for each page after the first,</span></span>
+<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a>                  <span class="co"># and stores all pages into a list.</span></span>
+<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a>                      total_pages <span class="ot">&lt;-</span> player_content<span class="sc">$</span>meta<span class="sc">$</span>total_pages</span>
+<span id="cb5-38"><a href="#cb5-38" tabindex="-1"></a>                      <span class="cf">if</span> (total_pages <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb5-39"><a href="#cb5-39" tabindex="-1"></a>                        page_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb5-40"><a href="#cb5-40" tabindex="-1"></a>                        page_list[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> player_stats1</span>
+<span id="cb5-41"><a href="#cb5-41" tabindex="-1"></a>                        <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>total_pages) {</span>
+<span id="cb5-42"><a href="#cb5-42" tabindex="-1"></a>                          stats_url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;https://www.balldontlie.io/api/v1/stats/?per_page=100&quot;</span>,</span>
+<span id="cb5-43"><a href="#cb5-43" tabindex="-1"></a>                                <span class="fu">paste0</span>(<span class="st">&quot;&amp;page=&quot;</span>, i),</span>
+<span id="cb5-44"><a href="#cb5-44" tabindex="-1"></a>                                <span class="fu">if_else</span>(<span class="fu">is.null</span>(season), <span class="st">&quot;&quot;</span>,</span>
+<span id="cb5-45"><a href="#cb5-45" tabindex="-1"></a>                                       <span class="fu">paste0</span>(<span class="st">&quot;&amp;seasons[]=&quot;</span>,</span>
+<span id="cb5-46"><a href="#cb5-46" tabindex="-1"></a>                                         <span class="fu">paste</span>(season, <span class="at">collapse=</span><span class="st">&quot;&amp;seasons[]=&quot;</span>)</span>
+<span id="cb5-47"><a href="#cb5-47" tabindex="-1"></a>                                        )),</span>
+<span id="cb5-48"><a href="#cb5-48" tabindex="-1"></a>                                <span class="fu">paste0</span>(<span class="st">&quot;&amp;player_ids[]=&quot;</span>, playerID),</span>
+<span id="cb5-49"><a href="#cb5-49" tabindex="-1"></a>                                <span class="fu">ifelse</span>(<span class="fu">is.null</span>(postseason), <span class="st">&quot;&quot;</span>,</span>
+<span id="cb5-50"><a href="#cb5-50" tabindex="-1"></a>                                       <span class="fu">paste0</span>(<span class="st">&quot;&amp;postseason=&quot;</span>, postseason))</span>
+<span id="cb5-51"><a href="#cb5-51" tabindex="-1"></a>                                ) </span>
+<span id="cb5-52"><a href="#cb5-52" tabindex="-1"></a>                      player_stats_api <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="at">url =</span> stats_url)</span>
+<span id="cb5-53"><a href="#cb5-53" tabindex="-1"></a>                      player_content <span class="ot">&lt;-</span></span>
+<span id="cb5-54"><a href="#cb5-54" tabindex="-1"></a>                        <span class="fu">fromJSON</span>(<span class="fu">rawToChar</span>(player_stats_api<span class="sc">$</span>content))</span>
+<span id="cb5-55"><a href="#cb5-55" tabindex="-1"></a>                        page_list[[i]] <span class="ot">&lt;-</span> player_content<span class="sc">$</span>data</span>
+<span id="cb5-56"><a href="#cb5-56" tabindex="-1"></a>                        }</span>
+<span id="cb5-57"><a href="#cb5-57" tabindex="-1"></a>                        </span>
+<span id="cb5-58"><a href="#cb5-58" tabindex="-1"></a>                        <span class="co"># Each dataset in the list is combine vertically</span></span>
+<span id="cb5-59"><a href="#cb5-59" tabindex="-1"></a>                        player_stats <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(page_list)</span>
+<span id="cb5-60"><a href="#cb5-60" tabindex="-1"></a>                      }</span>
+<span id="cb5-61"><a href="#cb5-61" tabindex="-1"></a>                      </span>
+<span id="cb5-62"><a href="#cb5-62" tabindex="-1"></a>                        <span class="co"># If there is only one page,</span></span>
+<span id="cb5-63"><a href="#cb5-63" tabindex="-1"></a>                        <span class="co"># that page is stored as player_stats</span></span>
+<span id="cb5-64"><a href="#cb5-64" tabindex="-1"></a>                      <span class="cf">else</span>{player_stats <span class="ot">&lt;-</span> player_stats1}</span>
+<span id="cb5-65"><a href="#cb5-65" tabindex="-1"></a>                      </span>
+<span id="cb5-66"><a href="#cb5-66" tabindex="-1"></a>                      <span class="co"># Create a cleaner date variable</span></span>
+<span id="cb5-67"><a href="#cb5-67" tabindex="-1"></a>                      player_stats<span class="sc">$</span>date <span class="ot">&lt;-</span></span>
+<span id="cb5-68"><a href="#cb5-68" tabindex="-1"></a>                        <span class="fu">substr</span>(player_stats<span class="sc">$</span>game<span class="sc">$</span>date, <span class="dv">1</span>, <span class="dv">10</span>)</span>
+<span id="cb5-69"><a href="#cb5-69" tabindex="-1"></a>                      </span>
+<span id="cb5-70"><a href="#cb5-70" tabindex="-1"></a>                      <span class="co">#Create visible season variable and convert it to factor</span></span>
+<span id="cb5-71"><a href="#cb5-71" tabindex="-1"></a>                      player_stats<span class="sc">$</span>season <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(player_stats<span class="sc">$</span>game<span class="sc">$</span>season)</span>
+<span id="cb5-72"><a href="#cb5-72" tabindex="-1"></a>                      </span>
+<span id="cb5-73"><a href="#cb5-73" tabindex="-1"></a>                      <span class="co"># Create a Home/Away game variable</span></span>
+<span id="cb5-74"><a href="#cb5-74" tabindex="-1"></a>                      player_stats<span class="sc">$</span>home_away <span class="ot">&lt;-</span></span>
+<span id="cb5-75"><a href="#cb5-75" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>team<span class="sc">$</span>id <span class="sc">==</span> player_stats<span class="sc">$</span>game<span class="sc">$</span>home_team_id, <span class="st">&quot;Home&quot;</span>, <span class="st">&quot;Away&quot;</span>)</span>
+<span id="cb5-76"><a href="#cb5-76" tabindex="-1"></a>                      </span>
+<span id="cb5-77"><a href="#cb5-77" tabindex="-1"></a>                      <span class="co"># Create a Win/Loss game variable</span></span>
+<span id="cb5-78"><a href="#cb5-78" tabindex="-1"></a>                      player_stats<span class="sc">$</span>win_loss <span class="ot">&lt;-</span></span>
+<span id="cb5-79"><a href="#cb5-79" tabindex="-1"></a>                        <span class="fu">if_else</span>((player_stats<span class="sc">$</span>home_away <span class="sc">==</span> <span class="st">&quot;Home&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb5-80"><a href="#cb5-80" tabindex="-1"></a>                                player_stats<span class="sc">$</span>game<span class="sc">$</span>home_team_score <span class="sc">&gt;</span> </span>
+<span id="cb5-81"><a href="#cb5-81" tabindex="-1"></a>                                player_stats<span class="sc">$</span>game<span class="sc">$</span>visitor_team_score) <span class="sc">|</span> </span>
+<span id="cb5-82"><a href="#cb5-82" tabindex="-1"></a>                                (player_stats<span class="sc">$</span>home_away <span class="sc">==</span> <span class="st">&quot;Away&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb5-83"><a href="#cb5-83" tabindex="-1"></a>                                player_stats<span class="sc">$</span>game<span class="sc">$</span>visitor_team_score <span class="sc">&gt;</span> </span>
+<span id="cb5-84"><a href="#cb5-84" tabindex="-1"></a>                                player_stats<span class="sc">$</span>game<span class="sc">$</span>home_team_score),</span>
+<span id="cb5-85"><a href="#cb5-85" tabindex="-1"></a>                                <span class="st">&quot;Win&quot;</span>, <span class="st">&quot;Loss&quot;</span>)</span>
+<span id="cb5-86"><a href="#cb5-86" tabindex="-1"></a>                      </span>
+<span id="cb5-87"><a href="#cb5-87" tabindex="-1"></a>                      <span class="co"># Create visible score variables</span></span>
+<span id="cb5-88"><a href="#cb5-88" tabindex="-1"></a>                      player_stats<span class="sc">$</span>team_score <span class="ot">&lt;-</span> <span class="fu">if_else</span>(</span>
+<span id="cb5-89"><a href="#cb5-89" tabindex="-1"></a>                                player_stats<span class="sc">$</span>home_away <span class="sc">==</span> <span class="st">&quot;Home&quot;</span>,</span>
+<span id="cb5-90"><a href="#cb5-90" tabindex="-1"></a>                                player_stats<span class="sc">$</span>game<span class="sc">$</span>home_team_score,</span>
+<span id="cb5-91"><a href="#cb5-91" tabindex="-1"></a>                                player_stats<span class="sc">$</span>game<span class="sc">$</span>visitor_team_score)</span>
+<span id="cb5-92"><a href="#cb5-92" tabindex="-1"></a>                      player_stats<span class="sc">$</span>opponent_score <span class="ot">&lt;-</span> <span class="fu">if_else</span>(</span>
+<span id="cb5-93"><a href="#cb5-93" tabindex="-1"></a>                                player_stats<span class="sc">$</span>home_away <span class="sc">==</span> <span class="st">&quot;Home&quot;</span>,</span>
+<span id="cb5-94"><a href="#cb5-94" tabindex="-1"></a>                                player_stats<span class="sc">$</span>game<span class="sc">$</span>visitor_team_score,</span>
+<span id="cb5-95"><a href="#cb5-95" tabindex="-1"></a>                                player_stats<span class="sc">$</span>game<span class="sc">$</span>home_team_score)</span>
+<span id="cb5-96"><a href="#cb5-96" tabindex="-1"></a>                      </span>
+<span id="cb5-97"><a href="#cb5-97" tabindex="-1"></a>                      <span class="co"># Create a visible Post-Season variable</span></span>
+<span id="cb5-98"><a href="#cb5-98" tabindex="-1"></a>                      player_stats<span class="sc">$</span>post_season <span class="ot">&lt;-</span> player_stats<span class="sc">$</span>game<span class="sc">$</span>postseason</span>
+<span id="cb5-99"><a href="#cb5-99" tabindex="-1"></a>                      </span>
+<span id="cb5-100"><a href="#cb5-100" tabindex="-1"></a>                      <span class="co"># Create a visible player_team variable</span></span>
+<span id="cb5-101"><a href="#cb5-101" tabindex="-1"></a>                      player_stats<span class="sc">$</span>player_team <span class="ot">&lt;-</span> player_stats<span class="sc">$</span>team<span class="sc">$</span>full_name</span>
+<span id="cb5-102"><a href="#cb5-102" tabindex="-1"></a>                      </span>
+<span id="cb5-103"><a href="#cb5-103" tabindex="-1"></a>                      <span class="co"># Create opponent_team_id variable</span></span>
+<span id="cb5-104"><a href="#cb5-104" tabindex="-1"></a>                      player_stats<span class="sc">$</span>opponent_team_id <span class="ot">&lt;-</span></span>
+<span id="cb5-105"><a href="#cb5-105" tabindex="-1"></a>                        <span class="fu">if_else</span>(player_stats<span class="sc">$</span>home_away<span class="sc">==</span><span class="st">&quot;Home&quot;</span>,</span>
+<span id="cb5-106"><a href="#cb5-106" tabindex="-1"></a>                                player_stats<span class="sc">$</span>game<span class="sc">$</span>visitor_team_id,</span>
+<span id="cb5-107"><a href="#cb5-107" tabindex="-1"></a>                                player_stats<span class="sc">$</span>game<span class="sc">$</span>home_team_id)</span>
+<span id="cb5-108"><a href="#cb5-108" tabindex="-1"></a>                      </span>
+<span id="cb5-109"><a href="#cb5-109" tabindex="-1"></a>                      <span class="co"># Create an opponent_team variable</span></span>
+<span id="cb5-110"><a href="#cb5-110" tabindex="-1"></a>                      <span class="co"># Note: The original dataset only provides team ID</span></span>
+<span id="cb5-111"><a href="#cb5-111" tabindex="-1"></a>                      <span class="co"># for the opposing team.</span></span>
+<span id="cb5-112"><a href="#cb5-112" tabindex="-1"></a>                      <span class="co"># Instead of pulling a team dataset with another</span></span>
+<span id="cb5-113"><a href="#cb5-113" tabindex="-1"></a>                      <span class="co"># API URL and merging the two datasets,</span></span>
+<span id="cb5-114"><a href="#cb5-114" tabindex="-1"></a>                      <span class="co"># I decided to create a codebook of teams</span></span>
+<span id="cb5-115"><a href="#cb5-115" tabindex="-1"></a>                      <span class="co"># since there are only 30 that need hardcoding.</span></span>
+<span id="cb5-116"><a href="#cb5-116" tabindex="-1"></a>                      player_stats<span class="sc">$</span>opponent_team <span class="ot">&lt;-</span></span>
+<span id="cb5-117"><a href="#cb5-117" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">1</span>,</span>
+<span id="cb5-118"><a href="#cb5-118" tabindex="-1"></a>                              <span class="st">&quot;Atlanta Hawks&quot;</span>,</span>
+<span id="cb5-119"><a href="#cb5-119" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">2</span>,</span>
+<span id="cb5-120"><a href="#cb5-120" tabindex="-1"></a>                              <span class="st">&quot;Boston Celtics&quot;</span>,</span>
+<span id="cb5-121"><a href="#cb5-121" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">3</span>,</span>
+<span id="cb5-122"><a href="#cb5-122" tabindex="-1"></a>                              <span class="st">&quot;Brooklyn Nets&quot;</span>,</span>
+<span id="cb5-123"><a href="#cb5-123" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">4</span>,</span>
+<span id="cb5-124"><a href="#cb5-124" tabindex="-1"></a>                              <span class="st">&quot;Charlotte Hornets&quot;</span>,</span>
+<span id="cb5-125"><a href="#cb5-125" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">5</span>,</span>
+<span id="cb5-126"><a href="#cb5-126" tabindex="-1"></a>                              <span class="st">&quot;Chicago Bulls&quot;</span>,</span>
+<span id="cb5-127"><a href="#cb5-127" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">6</span>,</span>
+<span id="cb5-128"><a href="#cb5-128" tabindex="-1"></a>                              <span class="st">&quot;Cleveland Cavaliers&quot;</span>,</span>
+<span id="cb5-129"><a href="#cb5-129" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">7</span>,</span>
+<span id="cb5-130"><a href="#cb5-130" tabindex="-1"></a>                              <span class="st">&quot;Dallas Mavericks&quot;</span>,</span>
+<span id="cb5-131"><a href="#cb5-131" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">8</span>,</span>
+<span id="cb5-132"><a href="#cb5-132" tabindex="-1"></a>                              <span class="st">&quot;Denver Nuggets&quot;</span>,</span>
+<span id="cb5-133"><a href="#cb5-133" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">9</span>,</span>
+<span id="cb5-134"><a href="#cb5-134" tabindex="-1"></a>                              <span class="st">&quot;Detroit Pistons&quot;</span>,</span>
+<span id="cb5-135"><a href="#cb5-135" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">10</span>,</span>
+<span id="cb5-136"><a href="#cb5-136" tabindex="-1"></a>                              <span class="st">&quot;Golden State Warriors&quot;</span>,</span>
+<span id="cb5-137"><a href="#cb5-137" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">11</span>,</span>
+<span id="cb5-138"><a href="#cb5-138" tabindex="-1"></a>                              <span class="st">&quot;Houston Rockets&quot;</span>,</span>
+<span id="cb5-139"><a href="#cb5-139" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">12</span>,</span>
+<span id="cb5-140"><a href="#cb5-140" tabindex="-1"></a>                              <span class="st">&quot;Indiana Pacers&quot;</span>,</span>
+<span id="cb5-141"><a href="#cb5-141" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">13</span>,</span>
+<span id="cb5-142"><a href="#cb5-142" tabindex="-1"></a>                              <span class="st">&quot;LA Clippers&quot;</span>,</span>
+<span id="cb5-143"><a href="#cb5-143" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">14</span>,</span>
+<span id="cb5-144"><a href="#cb5-144" tabindex="-1"></a>                              <span class="st">&quot;Los Angeles Lakers&quot;</span>,</span>
+<span id="cb5-145"><a href="#cb5-145" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">15</span>,</span>
+<span id="cb5-146"><a href="#cb5-146" tabindex="-1"></a>                              <span class="st">&quot;Memphis Grizzlies&quot;</span>,</span>
+<span id="cb5-147"><a href="#cb5-147" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">16</span>,</span>
+<span id="cb5-148"><a href="#cb5-148" tabindex="-1"></a>                              <span class="st">&quot;Miami Heat&quot;</span>,</span>
+<span id="cb5-149"><a href="#cb5-149" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">17</span>,</span>
+<span id="cb5-150"><a href="#cb5-150" tabindex="-1"></a>                              <span class="st">&quot;Milwaukee Bucks&quot;</span>,</span>
+<span id="cb5-151"><a href="#cb5-151" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">18</span>,</span>
+<span id="cb5-152"><a href="#cb5-152" tabindex="-1"></a>                              <span class="st">&quot;Minnesota Timberwolves&quot;</span>,</span>
+<span id="cb5-153"><a href="#cb5-153" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">19</span>,</span>
+<span id="cb5-154"><a href="#cb5-154" tabindex="-1"></a>                              <span class="st">&quot;New Orleans Pelicans&quot;</span>,</span>
+<span id="cb5-155"><a href="#cb5-155" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">20</span>,</span>
+<span id="cb5-156"><a href="#cb5-156" tabindex="-1"></a>                              <span class="st">&quot;New York Knicks&quot;</span>,</span>
+<span id="cb5-157"><a href="#cb5-157" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">21</span>,</span>
+<span id="cb5-158"><a href="#cb5-158" tabindex="-1"></a>                              <span class="st">&quot;Oklahoma City Thunder&quot;</span>,</span>
+<span id="cb5-159"><a href="#cb5-159" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">22</span>,</span>
+<span id="cb5-160"><a href="#cb5-160" tabindex="-1"></a>                              <span class="st">&quot;Orlando Magic&quot;</span>,</span>
+<span id="cb5-161"><a href="#cb5-161" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">23</span>,</span>
+<span id="cb5-162"><a href="#cb5-162" tabindex="-1"></a>                              <span class="st">&quot;Philadelphia 76ers&quot;</span>,</span>
+<span id="cb5-163"><a href="#cb5-163" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">24</span>,</span>
+<span id="cb5-164"><a href="#cb5-164" tabindex="-1"></a>                              <span class="st">&quot;Phoenix Suns&quot;</span>,</span>
+<span id="cb5-165"><a href="#cb5-165" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">25</span>,</span>
+<span id="cb5-166"><a href="#cb5-166" tabindex="-1"></a>                              <span class="st">&quot;Portland Trail Blazers&quot;</span>,</span>
+<span id="cb5-167"><a href="#cb5-167" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">26</span>,</span>
+<span id="cb5-168"><a href="#cb5-168" tabindex="-1"></a>                              <span class="st">&quot;Sacramento Kings&quot;</span>,</span>
+<span id="cb5-169"><a href="#cb5-169" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">27</span>,</span>
+<span id="cb5-170"><a href="#cb5-170" tabindex="-1"></a>                              <span class="st">&quot;San Antonio Spurs&quot;</span>,</span>
+<span id="cb5-171"><a href="#cb5-171" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">28</span>,</span>
+<span id="cb5-172"><a href="#cb5-172" tabindex="-1"></a>                              <span class="st">&quot;Toronto Raptors&quot;</span>,</span>
+<span id="cb5-173"><a href="#cb5-173" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">29</span>,</span>
+<span id="cb5-174"><a href="#cb5-174" tabindex="-1"></a>                              <span class="st">&quot;Utah Jazz&quot;</span>,</span>
+<span id="cb5-175"><a href="#cb5-175" tabindex="-1"></a>                      <span class="fu">if_else</span>(player_stats<span class="sc">$</span>opponent_team_id<span class="sc">==</span><span class="dv">30</span>,</span>
+<span id="cb5-176"><a href="#cb5-176" tabindex="-1"></a>                              <span class="st">&quot;Washington Wizards&quot;</span>, <span class="st">&quot;ERROR&quot;</span></span>
+<span id="cb5-177"><a href="#cb5-177" tabindex="-1"></a>                      ))))))))))))))))))))))))))))))</span>
+<span id="cb5-178"><a href="#cb5-178" tabindex="-1"></a>                      </span>
+<span id="cb5-179"><a href="#cb5-179" tabindex="-1"></a>                      <span class="co"># Adjust percentage stats to fix outliers input as whole numbers</span></span>
+<span id="cb5-180"><a href="#cb5-180" tabindex="-1"></a>                      player_stats<span class="sc">$</span>fg_pct <span class="ot">&lt;-</span> <span class="fu">if_else</span>(player_stats<span class="sc">$</span>fg_pct<span class="sc">&gt;</span><span class="dv">1</span>, </span>
+<span id="cb5-181"><a href="#cb5-181" tabindex="-1"></a>                                                     player_stats<span class="sc">$</span>fg_pct<span class="sc">/</span><span class="dv">100</span>,</span>
+<span id="cb5-182"><a href="#cb5-182" tabindex="-1"></a>                                                     player_stats<span class="sc">$</span>fg_pct)</span>
+<span id="cb5-183"><a href="#cb5-183" tabindex="-1"></a>                      </span>
+<span id="cb5-184"><a href="#cb5-184" tabindex="-1"></a>                      player_stats<span class="sc">$</span>ft_pct <span class="ot">&lt;-</span> <span class="fu">if_else</span>(player_stats<span class="sc">$</span>ft_pct<span class="sc">&gt;</span><span class="dv">1</span>, </span>
+<span id="cb5-185"><a href="#cb5-185" tabindex="-1"></a>                                                     player_stats<span class="sc">$</span>ft_pct<span class="sc">/</span><span class="dv">100</span>,</span>
+<span id="cb5-186"><a href="#cb5-186" tabindex="-1"></a>                                                     player_stats<span class="sc">$</span>ft_pct)</span>
+<span id="cb5-187"><a href="#cb5-187" tabindex="-1"></a>                      </span>
+<span id="cb5-188"><a href="#cb5-188" tabindex="-1"></a>                      player_stats<span class="sc">$</span>fg3_pct <span class="ot">&lt;-</span> <span class="fu">if_else</span>(player_stats<span class="sc">$</span>fg3_pct<span class="sc">&gt;</span><span class="dv">1</span>, </span>
+<span id="cb5-189"><a href="#cb5-189" tabindex="-1"></a>                                                     player_stats<span class="sc">$</span>fg3_pct<span class="sc">/</span><span class="dv">100</span>,</span>
+<span id="cb5-190"><a href="#cb5-190" tabindex="-1"></a>                                                     player_stats<span class="sc">$</span>fg3_pct)</span>
+<span id="cb5-191"><a href="#cb5-191" tabindex="-1"></a>                      </span>
+<span id="cb5-192"><a href="#cb5-192" tabindex="-1"></a>                      <span class="co"># Sort games by date</span></span>
+<span id="cb5-193"><a href="#cb5-193" tabindex="-1"></a>                      player_stats_sorted <span class="ot">&lt;-</span> <span class="fu">arrange</span>(player_stats, date)</span>
+<span id="cb5-194"><a href="#cb5-194" tabindex="-1"></a>                      </span>
+<span id="cb5-195"><a href="#cb5-195" tabindex="-1"></a>                      <span class="co"># Select important stats and reorder columns</span></span>
+<span id="cb5-196"><a href="#cb5-196" tabindex="-1"></a>                      player_stats_clean <span class="ot">&lt;-</span> player_stats_sorted <span class="sc">%&gt;%</span></span>
+<span id="cb5-197"><a href="#cb5-197" tabindex="-1"></a>                        <span class="fu">select</span>(date, min, pts, reb, ast, stl, blk, fgm, fga,</span>
+<span id="cb5-198"><a href="#cb5-198" tabindex="-1"></a>                               fg_pct, fg3m, fg3a, fg3_pct, ftm, fta, ft_pct,</span>
+<span id="cb5-199"><a href="#cb5-199" tabindex="-1"></a>                               oreb, dreb, turnover, pf, home_away, win_loss,</span>
+<span id="cb5-200"><a href="#cb5-200" tabindex="-1"></a>                               player_team, team_score, opponent_team,</span>
+<span id="cb5-201"><a href="#cb5-201" tabindex="-1"></a>                               opponent_score, post_season, season)</span>
+<span id="cb5-202"><a href="#cb5-202" tabindex="-1"></a>                      </span>
+<span id="cb5-203"><a href="#cb5-203" tabindex="-1"></a>                      <span class="co"># Allow user to select variables and order,</span></span>
+<span id="cb5-204"><a href="#cb5-204" tabindex="-1"></a>                      <span class="co"># but always keeping the date for reference</span></span>
+<span id="cb5-205"><a href="#cb5-205" tabindex="-1"></a>                      player_stats_final <span class="ot">&lt;-</span> player_stats_clean <span class="sc">%&gt;%</span></span>
+<span id="cb5-206"><a href="#cb5-206" tabindex="-1"></a>                        <span class="fu">select</span>(date, stats)</span>
+<span id="cb5-207"><a href="#cb5-207" tabindex="-1"></a>                      </span>
+<span id="cb5-208"><a href="#cb5-208" tabindex="-1"></a>                      <span class="co"># Print final player stats as a tibble</span></span>
+<span id="cb5-209"><a href="#cb5-209" tabindex="-1"></a>                      <span class="fu">as_tibble</span>(player_stats_final)</span>
+<span id="cb5-210"><a href="#cb5-210" tabindex="-1"></a>                      }</span>
+<span id="cb5-211"><a href="#cb5-211" tabindex="-1"></a>}</span></code></pre></div>
+<p> </p>
+<h2 id="player_game_stats-example">Player_Game_Stats Example</h2>
+<p>Here is an example of this function, pulling the post-season games
+for Lebron James when he was on the Miami Heat from 2010-2014.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>Lebron_Heat_Playoffs <span class="ot">&lt;-</span> <span class="fu">player_game_stats</span>(<span class="at">first_name =</span> <span class="st">&quot;lebron&quot;</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>                                          <span class="at">last_name =</span> <span class="st">&quot;james&quot;</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>                                          <span class="at">season =</span> <span class="fu">c</span>(<span class="dv">2010</span><span class="sc">:</span><span class="dv">2013</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>                                          <span class="at">postseason =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>Lebron_Heat_Playoffs</span></code></pre></div>
+<pre><code>## # A tibble: 87 × 28
+##    date       min     pts   reb   ast   stl   blk   fgm   fga fg_pct  fg3m  fg3a fg3_pct   ftm   fta
+##    &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;int&gt; &lt;int&gt;   &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+##  1 2011-04-16 42:43    21    14     5     1     3     4    14  0.286     0     2   0        13    14
+##  2 2011-04-18 38:55    29     7     6     0     0    10    19  0.526     1     1   1         8    10
+##  3 2011-04-21 44:16    24    15     6     1     0     8    15  0.533     1     4   0.25      7    10
+##  4 2011-04-24 43:33    31     7     6     1     1    11    20  0.55      0     4   0         9    11
+##  5 2011-04-27 41:40    16    10     8     1     0     5    13  0.385     2     5   0.4       4     5
+##  6 2011-05-01 39:54    22     6     5     2     2     8    19  0.421     1     3   0.333     5     9
+##  7 2011-05-03 44:03    35     7     2     1     1    14    25  0.56      2     4   0.5       5     8
+##  8 2011-05-07 42:48    15     7     4     2     5     6    16  0.375     0     3   0         3     7
+##  9 2011-05-09 50:17    35    14     3     3     0    12    28  0.429     2     6   0.333     9     9
+## 10 2011-05-11 45:43    33     7     4     1     1    11    20  0.55      5     7   0.714     6     9
+## # ℹ 77 more rows
+## # ℹ 13 more variables: ft_pct &lt;dbl&gt;, oreb &lt;int&gt;, dreb &lt;int&gt;, turnover &lt;int&gt;, pf &lt;int&gt;,
+## #   home_away &lt;chr&gt;, win_loss &lt;chr&gt;, player_team &lt;chr&gt;, team_score &lt;int&gt;, opponent_team &lt;chr&gt;,
+## #   opponent_score &lt;int&gt;, post_season &lt;lgl&gt;, season &lt;fct&gt;</code></pre>
+<p>   </p>
+<h2 id="player-average-season-stats-function">Player Average Season
+Stats Function</h2>
+<p><code>player_season_stats</code>   This function returns a tibble of
+average statistics for a particular player by season.</p>
+<p>These are the official averages from the NBA, which may differ from
+creating a mean summary using data from the
+<code>player_game_stats</code>function above because that function
+includes some games where the player did not play, resulting in all 0s
+for that game. These games are excluded from the official averages.</p>
+<p>This function takes in the following inputs:</p>
+<ul>
+<li><p><strong>first_name</strong>: The first name of the player the
+user is searching for. There is no default for this input, but if a name
+is not supplied the function returns an error message prompting the user
+to input a name.</p></li>
+<li><p><strong>last_name</strong>: The last name of the player you are
+searching for. Similarly to first name, if a name is not supplied the
+function returns an error message prompting the user to input a
+name.</p></li>
+<li><p><strong>season</strong>: The season or group of seasons the user
+want data for. The season is indicated by the year that the season
+started, so if the user wants data on the 2012-2013 season, they would
+input 2012. If the user is searching for multiple seasons, this should
+be input as a vector. If no season is supplied, the default is to return
+only the current season averages for that player. If seasons are
+specified for a player that did not play in, the function will return
+only the seasons the the player did play. If only seasons that the
+player did not play are specified, or the current season has not
+officially started and no season is specified, then the function returns
+an error.</p></li>
+<li><p><strong>stats</strong>: The desired stats variables that the user
+would like returned in the dataset. This should be input as a vector if
+the user is seeking multiple stats. The season of each game is always
+included for reference. If no stats are supplied, the default is to
+provide the full set of variables.</p></li>
+</ul>
+<p> </p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>player_season_stats <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">first_name=</span><span class="cn">NULL</span>, <span class="at">last_name=</span><span class="cn">NULL</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>                              <span class="at">season=</span><span class="cn">NULL</span>, <span class="at">stats=</span><span class="fu">everything</span>(), ...){</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  </span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>              <span class="co"># Return Error message if First and Last name not specified</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>                      <span class="cf">if</span> (<span class="fu">is.null</span>(first_name) <span class="sc">|</span> <span class="fu">is.null</span>(last_name)) {<span class="fu">message</span>(<span class="st">&quot;Error: First and last name of an NBA player must be specified.&quot;</span>)}</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>                      <span class="cf">else</span> {</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>                        </span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>                      <span class="co"># Find the player&#39;s PlayerID to be used later</span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>                      player_search_url <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;https://www.balldontlie.io/api/v1/players/?search&quot;</span>, <span class="fu">paste</span>(first_name, last_name, <span class="at">sep =</span> <span class="st">&quot;+&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;=&quot;</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>                      player_search <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="at">url=</span>player_search_url)</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>                      player_info <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">rawToChar</span>(player_search<span class="sc">$</span>content))</span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a>                      playerID <span class="ot">&lt;-</span> player_info<span class="sc">$</span>data[<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>                      </span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>                      <span class="co"># Use the PlayerID to return the players average stats</span></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>                      <span class="co"># for a particular season or several seasons.</span></span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a>                      <span class="co"># If no season is specified, it returns the current season.</span></span>
+<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a>                      <span class="cf">if</span> (<span class="fu">is.null</span>(season)) {</span>
+<span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a>                        stats_url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;https://www.balldontlie.io/api/v1/season_averages?&quot;</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a>                                       <span class="fu">paste0</span>(<span class="st">&quot;&amp;player_ids[]=&quot;</span>, playerID)) </span>
+<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a>                      player_stats_api <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="at">url =</span> stats_url)</span>
+<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a>                      player_content <span class="ot">&lt;-</span></span>
+<span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a>                        <span class="fu">fromJSON</span>(<span class="fu">rawToChar</span>(player_stats_api<span class="sc">$</span>content))</span>
+<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a>                      player_stats <span class="ot">&lt;-</span> player_content<span class="sc">$</span>data</span>
+<span id="cb8-24"><a href="#cb8-24" tabindex="-1"></a>                      } </span>
+<span id="cb8-25"><a href="#cb8-25" tabindex="-1"></a>                      </span>
+<span id="cb8-26"><a href="#cb8-26" tabindex="-1"></a>                  <span class="co"># If a season is specified, the function initiates a loop.</span></span>
+<span id="cb8-27"><a href="#cb8-27" tabindex="-1"></a>                  <span class="co"># This API only allows 1 season to be returned at a time, </span></span>
+<span id="cb8-28"><a href="#cb8-28" tabindex="-1"></a>                  <span class="co"># so the loop pulls the queries the API to pull data for </span></span>
+<span id="cb8-29"><a href="#cb8-29" tabindex="-1"></a>                  <span class="co"># each season and stores each season into a list.</span></span>
+<span id="cb8-30"><a href="#cb8-30" tabindex="-1"></a>                      <span class="cf">else</span>{</span>
+<span id="cb8-31"><a href="#cb8-31" tabindex="-1"></a>                        season_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb8-32"><a href="#cb8-32" tabindex="-1"></a>                        <span class="cf">for</span> (i <span class="cf">in</span> season) {</span>
+<span id="cb8-33"><a href="#cb8-33" tabindex="-1"></a>                      stats_url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;https://www.balldontlie.io/api/v1/season_averages?&quot;</span>,</span>
+<span id="cb8-34"><a href="#cb8-34" tabindex="-1"></a>                                       <span class="fu">paste0</span>(<span class="st">&quot;&amp;season=&quot;</span>, i),</span>
+<span id="cb8-35"><a href="#cb8-35" tabindex="-1"></a>                                <span class="fu">paste0</span>(<span class="st">&quot;&amp;player_ids[]=&quot;</span>, playerID)) </span>
+<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a>                      player_stats_api <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="at">url =</span> stats_url)</span>
+<span id="cb8-37"><a href="#cb8-37" tabindex="-1"></a>                      player_content <span class="ot">&lt;-</span></span>
+<span id="cb8-38"><a href="#cb8-38" tabindex="-1"></a>                        <span class="fu">fromJSON</span>(<span class="fu">rawToChar</span>(player_stats_api<span class="sc">$</span>content))</span>
+<span id="cb8-39"><a href="#cb8-39" tabindex="-1"></a>                      season_list[[i]] <span class="ot">&lt;-</span> player_content<span class="sc">$</span>data</span>
+<span id="cb8-40"><a href="#cb8-40" tabindex="-1"></a>                        }</span>
+<span id="cb8-41"><a href="#cb8-41" tabindex="-1"></a>                        </span>
+<span id="cb8-42"><a href="#cb8-42" tabindex="-1"></a>                      <span class="co"># Each season in the list is combine vertically</span></span>
+<span id="cb8-43"><a href="#cb8-43" tabindex="-1"></a>                      player_stats <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(season_list)</span>
+<span id="cb8-44"><a href="#cb8-44" tabindex="-1"></a>                      }</span>
+<span id="cb8-45"><a href="#cb8-45" tabindex="-1"></a>                      </span>
+<span id="cb8-46"><a href="#cb8-46" tabindex="-1"></a>                      <span class="co"># Sort games by season from most recent down</span></span>
+<span id="cb8-47"><a href="#cb8-47" tabindex="-1"></a>                      player_stats_sorted <span class="ot">&lt;-</span> <span class="fu">arrange</span>(player_stats, <span class="fu">desc</span>(season))</span>
+<span id="cb8-48"><a href="#cb8-48" tabindex="-1"></a>                      </span>
+<span id="cb8-49"><a href="#cb8-49" tabindex="-1"></a>                      <span class="co"># Convert the season variable into a factor</span></span>
+<span id="cb8-50"><a href="#cb8-50" tabindex="-1"></a>                      player_stats_sorted<span class="sc">$</span>season <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(player_stats_sorted<span class="sc">$</span>season)</span>
+<span id="cb8-51"><a href="#cb8-51" tabindex="-1"></a>                      </span>
+<span id="cb8-52"><a href="#cb8-52" tabindex="-1"></a>                      <span class="co"># Select important stats and reorder columns</span></span>
+<span id="cb8-53"><a href="#cb8-53" tabindex="-1"></a>                      player_stats_clean <span class="ot">&lt;-</span> player_stats_sorted <span class="sc">%&gt;%</span></span>
+<span id="cb8-54"><a href="#cb8-54" tabindex="-1"></a>                        <span class="fu">select</span>(season, games_played, min, pts, reb, ast, stl,</span>
+<span id="cb8-55"><a href="#cb8-55" tabindex="-1"></a>                               blk, fgm, fga, fg_pct, fg3m, fg3a, fg3_pct,</span>
+<span id="cb8-56"><a href="#cb8-56" tabindex="-1"></a>                               ftm, fta, ft_pct, oreb, dreb, turnover, pf)</span>
+<span id="cb8-57"><a href="#cb8-57" tabindex="-1"></a>                      </span>
+<span id="cb8-58"><a href="#cb8-58" tabindex="-1"></a>                      <span class="co"># Allow user to select variables and order,</span></span>
+<span id="cb8-59"><a href="#cb8-59" tabindex="-1"></a>                      <span class="co"># but always keeping the season for reference</span></span>
+<span id="cb8-60"><a href="#cb8-60" tabindex="-1"></a>                      player_stats_final <span class="ot">&lt;-</span> player_stats_clean <span class="sc">%&gt;%</span></span>
+<span id="cb8-61"><a href="#cb8-61" tabindex="-1"></a>                        <span class="fu">select</span>(season, stats)</span>
+<span id="cb8-62"><a href="#cb8-62" tabindex="-1"></a>                      </span>
+<span id="cb8-63"><a href="#cb8-63" tabindex="-1"></a>                      <span class="co"># Print final player stats as a tibble</span></span>
+<span id="cb8-64"><a href="#cb8-64" tabindex="-1"></a>                      <span class="fu">as_tibble</span>(player_stats_final)</span>
+<span id="cb8-65"><a href="#cb8-65" tabindex="-1"></a>                      }</span>
+<span id="cb8-66"><a href="#cb8-66" tabindex="-1"></a>                      }</span></code></pre></div>
+<p> </p>
+<h2 id="player_season_stats-example">Player_Season_Stats Example</h2>
+<p>Here is an example of this function, pulling Michael Jordan’s average
+points, assists, rebounds, blocks, and steals for every season in his
+career.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>Michael_Jordan_avgs <span class="ot">&lt;-</span> <span class="fu">player_season_stats</span>(<span class="at">first_name =</span> <span class="st">&quot;Michael&quot;</span>,</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>                                           <span class="at">last_name =</span> <span class="st">&quot;Jordan&quot;</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>                                           <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">&quot;pts&quot;</span>, <span class="st">&quot;ast&quot;</span>, <span class="st">&quot;reb&quot;</span>, <span class="st">&quot;blk&quot;</span>, <span class="st">&quot;stl&quot;</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>                                           <span class="at">season =</span> <span class="fu">c</span>(<span class="dv">1980</span><span class="sc">:</span><span class="dv">2005</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>Michael_Jordan_avgs</span></code></pre></div>
+<pre><code>## # A tibble: 15 × 6
+##    season   pts   ast   reb   blk   stl
+##    &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 2002    20    3.79  6.06  0.48  1.5 
+##  2 2001    22.9  5.17  5.65  0.43  1.42
+##  3 1997    28.7  3.45  5.79  0.55  1.72
+##  4 1996    29.6  4.29  5.88  0.54  1.71
+##  5 1995    30.4  4.29  6.62  0.51  2.2 
+##  6 1994    26.9  5.29  6.88  0.76  1.76
+##  7 1992    32.6  5.49  6.69  0.78  2.83
+##  8 1991    30.0  6.11  6.39  0.94  2.28
+##  9 1990    31.5  5.52  6     1.01  2.72
+## 10 1989    33.6  6.33  6.89  0.66  2.77
+## 11 1988    32.5  8.02  8.05  0.8   2.89
+## 12 1987    35.0  5.91  5.48  1.6   3.16
+## 13 1986    37.1  4.6   5.24  1.52  2.88
+## 14 1985    22.7  2.94  3.56  1.17  2.06
+## 15 1984    28.2  5.87  6.51  0.84  2.39</code></pre>
+<p> </p>
+<h1 id="exploratory-data-analysis">Exploratory Data Analysis</h1>
+<p>To demonstrate these functions, I will be performing a basic
+exploratory data analysis using data from calls to the above two
+functions. The analysis will be about one particular NBA player, Jayson
+Tatum, and look at his stats throughout his career to investigate the
+following questions:</p>
+<ol style="list-style-type: decimal">
+<li>Has Jayson Tatum improved as a player since he has come into the
+league?</li>
+<li>If he has improved, how much has he improved and in what areas?</li>
+<li>Is there a difference between how Jayson Tatum plays in the regular
+season compared to the post-season?</li>
+</ol>
+<h2 id="game-statistics-dataset-creation">Game Statistics Dataset
+Creation</h2>
+<p>The below code creates a dataset of stats for all games played by
+Jayson Tatum. This data will be used for all game-level analyses
+below.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>tatum_all_games <span class="ot">&lt;-</span> <span class="fu">player_game_stats</span>(<span class="at">first_name =</span> <span class="st">&quot;jayson&quot;</span>, <span class="at">last_name =</span> <span class="st">&quot;tatum&quot;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>tatum_all_games</span></code></pre></div>
+<pre><code>## # A tibble: 550 × 28
+##    date       min     pts   reb   ast   stl   blk   fgm   fga fg_pct  fg3m  fg3a fg3_pct   ftm   fta
+##    &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;dbl&gt; &lt;int&gt; &lt;int&gt;   &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+##  1 2017-10-17 36:32    14    10     3     0     0     5    12  0.417     1     2   0.5       3     3
+##  2 2017-10-18 36:32     8     9     2     1     0     3     7  0.429     0     1   0         2     5
+##  3 2017-10-20 32:45    15     8     0     0     3     3     8  0.375     0     2   0         9     9
+##  4 2017-10-24 31:08    22     4     2     4     2     9    15  0.6       4     6   0.667     0     0
+##  5 2017-10-26 27:49    12     2     3     1     0     3     6  0.5       1     3   0.333     5     5
+##  6 2017-10-28 31:28    20     5     0     0     0     6     9  0.667     2     2   1         6     7
+##  7 2017-10-30 35:18     7    11     2     0     3     2     7  0.286     2     4   0.5       1     2
+##  8 2017-11-01 26:25    12     4     2     0     0     4     7  0.571     1     2   0.5       3     4
+##  9 2017-11-03 29:48    13     6     3     0     0     4    10  0.4       2     3   0.667     3     4
+## 10 2017-11-05 27:19    13     4     3     1     0     5     8  0.625     2     4   0.5       1     2
+## # ℹ 540 more rows
+## # ℹ 13 more variables: ft_pct &lt;dbl&gt;, oreb &lt;int&gt;, dreb &lt;int&gt;, turnover &lt;int&gt;, pf &lt;int&gt;,
+## #   home_away &lt;chr&gt;, win_loss &lt;chr&gt;, player_team &lt;chr&gt;, team_score &lt;int&gt;, opponent_team &lt;chr&gt;,
+## #   opponent_score &lt;int&gt;, post_season &lt;lgl&gt;, season &lt;fct&gt;</code></pre>
+<p> </p>
+<h2 id="contingency-tables-of-season-winslosses-and-post-season">Contingency
+Tables of Season, Wins/Losses, and Post-Season</h2>
+<p>The below code creates a two-way contingency table displaying Jayson
+Tatum’s proportion of wins and losses for each season. This table shows
+that, although his winning percentage has not consistently improved
+every season, he has had considerable success throughout his career with
+a winning percentage above 60% in every season except 2020, and his most
+recent year was one of his most successful in this metric.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(tatum_all_games<span class="sc">$</span>season, tatum_all_games<span class="sc">$</span>win_loss),</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>           <span class="at">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##       
+##             Loss       Win
+##   2017 0.3500000 0.6500000
+##   2018 0.3932584 0.6067416
+##   2019 0.3255814 0.6744186
+##   2020 0.5000000 0.5000000
+##   2021 0.3663366 0.6336634
+##   2022 0.3333333 0.6666667</code></pre>
+<p>  The below code creates a two-way contingency table displaying
+Tatum’s the proportion of wins and losses in the regular season (labeled
+as FALSE) and the playoffs (labeled as TRUE). This table shows that
+Jayson Tatum has a slightly lower winning percentage in the postseason
+compared to in the regular season. However, one would expect a drop in
+postseason due to the increased level of competition. The playoff
+winning percentage is still over 50%, which means that overall one would
+expect Tatum’s team to win a 7-game series most of the time.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(tatum_all_games<span class="sc">$</span>post_season, tatum_all_games<span class="sc">$</span>win_loss),</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>           <span class="at">margin =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>##        
+##              Loss       Win
+##   FALSE 0.3574561 0.6425439
+##   TRUE  0.4468085 0.5531915</code></pre>
+<p>  The below code creates a three-way contingency table displaying
+Tatum’s total number of wins and losses in the regular season (labeled
+as FALSE) and the playoffs (labeled as TRUE), with a table for each
+season he has played. This table shows that Tatum’ had a very successful
+first year in both the regular season and the playoffs, but Tatum’s most
+recent two years have been among his most successful. Every 4 wins in
+the playoffs mean that the team advances another round, with 4 rounds
+total, which means that Tatum made it to the NBA Finals in 2021 and the
+Conference finals three other years including 2022. Although there is
+some fluctuation in playoff wins each year, this table shows a general
+upward trend.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">table</span>(tatum_all_games<span class="sc">$</span>post_season, tatum_all_games<span class="sc">$</span>win_loss, tatum_all_games<span class="sc">$</span>season)</span></code></pre></div>
+<pre><code>## , ,  = 2017
+## 
+##        
+##         Loss Win
+##   FALSE   27  54
+##   TRUE     8  11
+## 
+## , ,  = 2018
+## 
+##        
+##         Loss Win
+##   FALSE   31  49
+##   TRUE     4   5
+## 
+## , ,  = 2019
+## 
+##        
+##         Loss Win
+##   FALSE   21  48
+##   TRUE     7  10
+## 
+## , ,  = 2020
+## 
+##        
+##         Loss Win
+##   FALSE   32  35
+##   TRUE     4   1
+## 
+## , ,  = 2021
+## 
+##        
+##         Loss Win
+##   FALSE   27  50
+##   TRUE    10  14
+## 
+## , ,  = 2022
+## 
+##        
+##         Loss Win
+##   FALSE   25  57
+##   TRUE     9  11</code></pre>
+<p> </p>
+<h2 id="box-plots-and-numerical-summaries-of-points">Box Plots and
+Numerical Summaries of Points</h2>
+<p>The below code creates a numerical summary of Tatum’s mean points the
+regular season and the post-season (calculated from the individual games
+dataset) as well as standard deviations for each season. This data is
+also visualize with box plots for each season. One question in analyzing
+any sports player is consistency. How much do their performances vary
+from night-to-night? The below data and plots show that, although
+Tatum’s regular season points have grown consistently from year-to-year,
+he standard deviation has also trended upward, indicating that he is
+less consistent. In the playoffs, however, the box plots show that
+Tatum’s point variability has not increases dramatically as he has
+progressed, meaning that he is reasonably consistent in the
+post-season.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>tatum_all_games <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(post_season, season) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(pts, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">sd =</span> <span class="fu">sd</span>(pts, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;post_season&#39;. You can override using the `.groups` argument.
+
+## # A tibble: 12 × 4
+##    post_season season  mean    sd
+##    &lt;lgl&gt;       &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt;
+##  1 FALSE       2017    13.9  5.28
+##  2 FALSE       2018    15.5  6.30
+##  3 FALSE       2019    22.4  9.17
+##  4 FALSE       2020    26   10.7 
+##  5 FALSE       2021    26.8  8.73
+##  6 FALSE       2022    27.1 12.1 
+##  7 TRUE        2017    18.5  6.10
+##  8 TRUE        2018    15.2  6.98
+##  9 TRUE        2019    25.7  6.02
+## 10 TRUE        2020    30.6 15.9 
+## 11 TRUE        2021    25.6  8.67
+## 12 TRUE        2022    27.2  9.89</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">ggplot</span>(tatum_all_games, <span class="fu">aes</span>(<span class="at">x=</span>season, <span class="at">y=</span>pts)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;green&quot;</span>) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Season&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Points&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Points per Season by Post-Season&quot;</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>post_season)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- -->  </p>
+<h2 id="box-plots-and-numerical-summaries-of-field-goal-percentage">Box
+Plots and Numerical Summaries of Field Goal Percentage</h2>
+<p>We can also run the same analysis on field goal percentage. Field
+goal percentage can be used to see how efficient a player is, since
+point could just be the result of taking more shots and not making a
+greater proportion of shots. This analysis shows that Tatum’s field goal
+percentage in the regular season has decreased slightly since his first
+season, and his most recent year has been his worst and least consistent
+yet. However, during the post-season his field goal percentage was one
+of his best, with a moderate level of variability compared to previous
+seasons.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>tatum_all_games <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(post_season, season) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(fg_pct, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">sd =</span> <span class="fu">sd</span>(fg_pct, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;post_season&#39;. You can override using the `.groups` argument.
+
+## # A tibble: 12 × 4
+##    post_season season  mean     sd
+##    &lt;lgl&gt;       &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1 FALSE       2017   0.472 0.144 
+##  2 FALSE       2018   0.434 0.145 
+##  3 FALSE       2019   0.431 0.164 
+##  4 FALSE       2020   0.441 0.141 
+##  5 FALSE       2021   0.452 0.131 
+##  6 FALSE       2022   0.419 0.178 
+##  7 TRUE        2017   0.462 0.100 
+##  8 TRUE        2018   0.412 0.126 
+##  9 TRUE        2019   0.438 0.0911
+## 10 TRUE        2020   0.396 0.117 
+## 11 TRUE        2021   0.428 0.132 
+## 12 TRUE        2022   0.444 0.121</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="fu">ggplot</span>(tatum_all_games, <span class="fu">aes</span>(<span class="at">x=</span>season, <span class="at">y=</span>fg_pct)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">&quot;green&quot;</span>) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Season&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Points&quot;</span>, <span class="at">title =</span> <span class="st">&quot;FG% per Season by Post-Season&quot;</span>) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>post_season)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- -->  </p>
+<h2 id="density-plots-and-numerical-summaries-of-3-point-field-goal-percentage">Density
+Plots and Numerical Summaries of 3-Point Field Goal Percentage</h2>
+<p>The below code runs the same analysis on 3-point field goal
+percentage (a important part of Tatum’s game), but swaps out the box
+plots for density plots. The summary statistics show that Tatum’s
+regular season 3-point percentage has been trending downward, but his
+3-point percentage in the playoffs has been trending upward. This
+supports the idea that Tatum elevates his game during the playoffs.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>tatum_all_games <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(post_season, season) <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(fg3_pct, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">sd =</span> <span class="fu">sd</span>(fg3_pct, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;post_season&#39;. You can override using the `.groups` argument.
+
+## # A tibble: 12 × 4
+##    post_season season  mean     sd
+##    &lt;lgl&gt;       &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+##  1 FALSE       2017   0.426 0.331 
+##  2 FALSE       2018   0.367 0.304 
+##  3 FALSE       2019   0.353 0.220 
+##  4 FALSE       2020   0.369 0.188 
+##  5 FALSE       2021   0.330 0.195 
+##  6 FALSE       2022   0.304 0.187 
+##  7 TRUE        2017   0.268 0.157 
+##  8 TRUE        2018   0.300 0.319 
+##  9 TRUE        2019   0.345 0.161 
+## 10 TRUE        2020   0.366 0.0813
+## 11 TRUE        2021   0.389 0.189 
+## 12 TRUE        2022   0.313 0.198</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">ggplot</span>(tatum_all_games, <span class="fu">aes</span>(<span class="at">x=</span>fg3_pct)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="fu">aes</span>(<span class="at">fill=</span>post_season)) <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;3-Point Percentage&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Proportion of Games&quot;</span>, <span class="at">title =</span> <span class="st">&quot;3-Point Percentage Histogram&quot;</span>) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a>  <span class="fu">scale_fill_discrete</span>(<span class="at">name=</span><span class="st">&quot;Post-Season&quot;</span>) <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>season)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- -->  </p>
+<h2 id="assists-to-turnovers-scatterplots">Assists-to-Turnovers
+Scatterplots</h2>
+<p>Another important part of any NBA players game is facilitation and
+ball security. This is commonly analyzed with the assist-to-turnover
+ratio, which looks at how many assist a player gets by passing another
+player the ball who then scores, compared to how many times the player
+loses the ball to the opposing team. The below code creates several
+scatterplots by season, with turnovers on the x-axis and assists on the
+y-axis. These plots show that as Tatum’s assist numbers increased over
+his career, generally so did his turnovers, which means there may still
+be room for improvement in his ball security. However, in his most
+recent post-season Tatum did not have any games with over 5 turnovers,
+which does show some increased ball security in the post-season as well
+as seasonal improvement.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="fu">ggplot</span>(tatum_all_games, <span class="fu">aes</span>(<span class="at">x=</span>ast, <span class="at">y=</span>turnover)) <span class="sc">+</span> </span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col=</span>post_season), <span class="at">position=</span><span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Assists&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Turnovers&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Assists to Turnovers&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name=</span><span class="st">&quot;Post-Season&quot;</span>) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> season)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- -->  </p>
+<h2 id="spider-plot-of-average-stats">Spider Plot of Average Stats</h2>
+<p>Finally, lets look at some average statistics not yet discussed that
+can be neatly displayed together. The below code calls the
+<code>player_season_stats</code> function and uses that data to create a
+spider plot by season of average field goal makes, 3-point makes,
+3-point attempts, free-throw makes, free-throw attempts, assist,
+rebounds, and turnovers. These statistics were chosen because they all
+have similar scales that can be shown on the plot cleanly. This chart
+shows that in most statistics Tatum has improved on average from season
+to season. He has also increase his number of attempts, which could be
+the reason why some of his percentages have decreased as shown
+previously. For example, Tatum’s 3-point makes took a big jump in his
+third year, as did his attempts, but his makes have not dramatically
+improved since then even though his attempts continue to increase.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a>tatum_season_avgs <span class="ot">&lt;-</span> <span class="fu">player_season_stats</span>(<span class="at">first_name =</span> <span class="st">&quot;jayson&quot;</span>, <span class="at">last_name =</span> <span class="st">&quot;tatum&quot;</span>, <span class="at">season=</span><span class="fu">c</span>(<span class="dv">2017</span><span class="sc">:</span><span class="dv">2023</span>), <span class="at">stats =</span> <span class="fu">c</span>(<span class="st">&quot;fgm&quot;</span>, <span class="st">&quot;fg3m&quot;</span>, <span class="st">&quot;fg3a&quot;</span>, <span class="st">&quot;ftm&quot;</span>, <span class="st">&quot;fta&quot;</span>, <span class="st">&quot;ast&quot;</span>, <span class="st">&quot;reb&quot;</span>, <span class="st">&quot;turnover&quot;</span>))</span>
+<span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a>tatum_season_avgs</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 9
+##   season   fgm  fg3m  fg3a   ftm   fta   ast   reb turnover
+##   &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+## 1 2022    9.82  3.24  9.27  7.18  8.41  4.62  8.77     2.88
+## 2 2021    9.27  3     8.51  5.26  6.16  4.36  8.03     2.84
+## 3 2020    9.52  2.95  7.65  4.8   5.49  4.31  7.38     2.66
+## 4 2019    8.36  2.86  7.11  3.85  4.74  3.03  6.97     2.35
+## 5 2018    5.9   1.47  3.94  2.47  2.89  2.13  6.04     1.54
+## 6 2017    4.96  1.31  3.03  2.66  3.23  1.6   5.03     1.43</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="fu">ggradar</span>(tatum_season_avgs, <span class="at">group.point.size =</span> <span class="dv">2</span>, <span class="at">values.radar =</span> <span class="fu">c</span>(<span class="st">&quot;0&quot;</span>, <span class="st">&quot;&quot;</span>,<span class="st">&quot;10&quot;</span>), <span class="at">grid.mid =</span> <span class="dv">5</span>, <span class="at">grid.max =</span> <span class="dv">10</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The above exploratory data analysis shows that Jayson Tatum has
+consistently improved his statistics overall in the regular season, with
+the most notable improvements being in average points, assists,
+rebounds, and playoff 3-point percentage. It also shows that Tatum has a
+strong tendency to elevate his game during the post-season, especially
+in his two most recent seasons.<br />
+ <br />
+There are, however, some areas for improvement. Facilitation with ball
+security is one, although he has shown improvements in this metric
+during the playoffs. Consistency from game to game in the regular season
+is another area that could be improved, although this is not as much of
+an issue in the playoffs.</p>
+<p>  Another area of potential improvement would be regular season
+3-point percentage. A way to improve this may be better shot selection
+as opposed to increasing 3-point shot attempts. It may be wise to go to
+the hoop more as opposed to shooting more 3-pointers. Driving to the
+basket can draw more fouls, and as Tatum’s average free-throw attempts
+have increased from season-to-season, his average free-throw makes have
+increase at a commensurate rate.</p>
+
+</body>
+</html>
