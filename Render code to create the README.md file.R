@@ -7,4 +7,4 @@ rmarkdown::render("C:/Users/dolan/Desktop/NC State Grad Program/ST558/Project 2/
                   toc = TRUE,
                   toc_depth = 2,
                   number_sections = FALSE,
-                  df_print = "paged"))
+                  df_print = "tibble"))

@@ -669,7 +669,7 @@ ggplot(tatum_all_games, aes(x=season, y=pts)) +
   facet_wrap(~post_season)
 ```
 
-![](Figs/unnamed-chunk-13-1.png)<!-- -->   \## Box Plots and Numerical
+![](Figs/unnamed-chunk-14-1.png)<!-- -->   \## Box Plots and Numerical
 Summaries of Field Goal Percentage We can also run the same analysis on
 field goal percentage. Field goal percentage can be used to see how
 efficient a player is, since point could just be the result of taking
@@ -709,7 +709,7 @@ ggplot(tatum_all_games, aes(x=season, y=fg_pct)) +
   facet_wrap(~post_season)
 ```
 
-![](Figs/unnamed-chunk-14-1.png)<!-- -->   \## Density Plots and
+![](Figs/unnamed-chunk-15-1.png)<!-- -->   \## Density Plots and
 Numerical Summaries of 3-Point Field Goal Percentage The below code runs
 the same analysis on 3-point field goal percentage (a important part of
 Tatum’s game), but swaps out the box plots for density plots. The
@@ -748,7 +748,7 @@ ggplot(tatum_all_games, aes(x=fg3_pct)) +
   facet_wrap(~season)
 ```
 
-![](Figs/unnamed-chunk-15-1.png)<!-- -->   \## Assists-to-Turnovers
+![](Figs/unnamed-chunk-16-1.png)<!-- -->   \## Assists-to-Turnovers
 Scatterplots Another important part of any NBA players game is
 facilitation and ball security. This is commonly analyzed with the
 assist-to-turnover ratio, which looks at how many assist a player gets
@@ -770,7 +770,7 @@ ggplot(tatum_all_games, aes(x=ast, y=turnover)) +
   facet_wrap(~ season)
 ```
 
-![](Figs/unnamed-chunk-16-1.png)<!-- -->   \## Spider Plot of Average
+![](Figs/unnamed-chunk-17-1.png)<!-- -->   \## Spider Plot of Average
 Stats Finally, lets look at some average statistics not yet discussed
 that can be neatly displayed together. The below code calls the
 `player_season_stats` function and uses that data to create a spider
@@ -804,7 +804,7 @@ tatum_season_avgs
 ggradar(tatum_season_avgs, group.point.size = 2, values.radar = c("0", "","10"), grid.mid = 5, grid.max = 10)
 ```
 
-![](Figs/unnamed-chunk-17-1.png)<!-- -->
+![](Figs/unnamed-chunk-18-1.png)<!-- -->
 
 ## Conclusion
 
