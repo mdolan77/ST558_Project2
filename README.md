@@ -2,30 +2,6 @@ Project 2
 ================
 Michael Dolan
 
-- [Introduction](#introduction)
-- [Required Packages](#required-packages)
-- [Functions](#functions)
-  - [Player Game Stats Function](#player-game-stats-function)
-  - [Player_Game_Stats Example](#player_game_stats-example)
-  - [Player Average Season Stats
-    Function](#player-average-season-stats-function)
-  - [Player_Season_Stats Example](#player_season_stats-example)
-- [Exploratory Data Analysis](#exploratory-data-analysis)
-  - [Game Statistics Dataset
-    Creation](#game-statistics-dataset-creation)
-  - [Contingency Tables of Season, Wins/Losses, and
-    Post-Season](#contingency-tables-of-season-winslosses-and-post-season)
-  - [Box Plots and Numerical Summaries of
-    Points](#box-plots-and-numerical-summaries-of-points)
-  - [Box Plots and Numerical Summaries of Field Goal
-    Percentage](#box-plots-and-numerical-summaries-of-field-goal-percentage)
-  - [Density Plots and Numerical Summaries of 3-Point Field Goal
-    Percentage](#density-plots-and-numerical-summaries-of-3-point-field-goal-percentage)
-  - [Assists-to-Turnovers
-    Scatterplots](#assists-to-turnovers-scatterplots)
-  - [Spider Plot of Average Stats](#spider-plot-of-average-stats)
-  - [Conclusion](#conclusion)
-
 # Introduction
 
 This is a vignette describing how to utilize functions that were created
