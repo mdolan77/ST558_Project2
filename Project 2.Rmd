@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.path='Figs/', warning = FALSE, error = FA
 ```
 # Introduction
 This is a vignette describing how to utilize functions that were created to pull data from the balldontlie API. This database provides access to statistics from the NBA, consisting of season averages as well as individual game stats for players from 1946 to present. This is a free API that does not require an API key to access.
-\
+\  
 
 # Required Packages
 The below packages are required to run the functions.
@@ -17,13 +17,13 @@ library(httr)
 library(jsonlite)
 library(tidyverse)
 ```
-\
+\  
 
 The ggradar package was also used below to create some spider-plots.
 ```{r}
 library(ggradar)
 ```
-\
+\  
 This is the code used to install the ggradar package if it has not been installed previously.
 ```{r, eval=FALSE}
 install.packages("devtools")
@@ -44,12 +44,12 @@ Stats_Query <- GET(url =
 Stats <- fromJSON(rawToChar(Stats_Query$content))
 Stats$data$game
 ```
-\
+\  
 
 # Functions
-\
+\  
 `player_game_stats`
-\
+\  
 This function returns individual game statistics for a particular player, including the game score, the opponent, and the outcome of each game. Preseason games are excluded.
 
 This function takes in the following inputs:  
@@ -277,7 +277,7 @@ player_game_stats <- function(first_name=NULL, last_name=NULL,
                       }
 }
 ```
-\
+\  
 Here is an example of this function, pulling the post-season games for Lebron James when he was on the Miami Heat from 2010-2014.
 ```{r}
 Lebron_Heat_Playoffs <- player_game_stats(first_name = "lebron",
@@ -286,10 +286,12 @@ Lebron_Heat_Playoffs <- player_game_stats(first_name = "lebron",
                                           postseason = TRUE)
 Lebron_Heat_Playoffs
 ```
-\
-\
-`player_game_stats`
-\
+\  
+\  
+## Player Average Season Stats Function
+
+`player_season_stats`
+\  
 This function returns a tibble of average statistics for a particular player by season.
 
 These are the official averages from the NBA, which may differ from creating a mean summary using data from the `player_game_stats`function above because that function includes some games where the player did not play, resulting in all 0s for that game. These games are excluded from the official averages.
@@ -304,7 +306,7 @@ This function takes in the following inputs:
  
  - **stats**: The desired stats variables that the user would like returned in the dataset. This should be input as a vector if the user is seeking multiple stats. The season of each game is always included for reference. If no stats are supplied, the default is to provide the full set of variables.  
  
-\
+\  
 ```{r}
 player_season_stats <- function(first_name=NULL, last_name=NULL,
                               season=NULL, stats=everything(), ...){
@@ -373,7 +375,8 @@ player_season_stats <- function(first_name=NULL, last_name=NULL,
                       }
                       }
 ```
-\
+\  
+## Player_Season_Stats Example
 Here is an example of this function, pulling Michael Jordan's average points, assists, rebounds, blocks, and steals for every season in his career.
 ```{r}
 Michael_Jordan_avgs <- player_season_stats(first_name = "Michael",
@@ -382,40 +385,43 @@ Michael_Jordan_avgs <- player_season_stats(first_name = "Michael",
                                            season = c(1980:2005))
 Michael_Jordan_avgs
 ```
-\
+\  
 # Exploratory Data Analysis
 To demonstrate these functions, I will be performing a basic exploratory data analysis using data from calls to the above two functions. The analysis will be about one particular NBA player, Jayson Tatum, and look at his stats throughout his career to investigate the following questions:  
 
  1. Has Jayson Tatum improved as a player since he has come into the league?  
  2. If he has improved, how much has he improved and in what areas?  
  3. Is there a difference between how Jayson Tatum plays in the regular season compared to the post-season?  
- 
+
+## Game Statistics Dataset Creation
 The below code creates a dataset of stats for all games played by Jayson Tatum. This data will be used for all game-level analyses below.
 ```{r}
 tatum_all_games <- player_game_stats(first_name = "jayson", last_name = "tatum")
 tatum_all_games
 ```
-\
+\  
 
+## Contingency Tables of Season, Wins/Losses, and Post-Season
 The below code creates a two-way contingency table displaying Jayson Tatum's proportion of wins and losses for each season. This table shows that, although his winning percentage has not consistently improved every season, he has had considerable success throughout his career with a winning percentage above 60% in every season except 2020, and his most recent year was one of his most successful in this metric.
 ```{r}
 prop.table(table(tatum_all_games$season, tatum_all_games$win_loss),
            margin = 1)
 ```
-\
+\  
 The below code creates a two-way contingency table displaying Tatum's the proportion of wins and losses in the regular season (labeled as FALSE) and the playoffs (labeled as TRUE).
 This table shows that Jayson Tatum has a slightly lower winning percentage in the postseason compared to in the regular season. However, one would expect a drop in postseason due to the increased level of competition. The playoff winning percentage is still over 50%, which means that overall one would expect Tatum's team to win a 7-game series most of the time.
 ```{r}
 prop.table(table(tatum_all_games$post_season, tatum_all_games$win_loss),
            margin = 1)
 ```
-\
+\  
 The below code creates a three-way contingency table displaying Tatum's total number of wins and losses in the regular season (labeled as FALSE) and the playoffs (labeled as TRUE), with a table for each season he has played. This table shows that Tatum' had a very successful first year in both the regular season and the playoffs, but Tatum's most recent two years have been among his most successful. Every 4 wins in the playoffs mean that the team advances another round, with 4 rounds total, which means that Tatum made it to the NBA Finals in 2021 and the Conference finals three other years including 2022. Although there is some fluctuation in playoff wins each year, this table shows a general upward trend.
 ```{r}
 
 table(tatum_all_games$post_season, tatum_all_games$win_loss, tatum_all_games$season)
 ```
-\
+\  
+## Box Plots and Numerical Summaries of Points
 The below code creates a numerical summary of Tatum's mean points the regular season and the post-season (calculated from the individual games dataset) as well as standard deviations for each season. This data is also visualize with box plots for each season. One question in analyzing any sports player is consistency. How much do their performances vary from night-to-night? The below data and plots show that, although Tatum's regular season points have grown consistently from year-to-year, he standard deviation has also trended upward, indicating that he is less consistent. In the playoffs, however, the box plots show that Tatum's point variability has not increases dramatically as he has progressed, meaning that he is reasonably consistent in the post-season.
 ```{r}
 tatum_all_games %>% group_by(post_season, season) %>% summarize(mean = mean(pts, na.rm = TRUE), sd = sd(pts, na.rm = TRUE))
@@ -424,8 +430,8 @@ ggplot(tatum_all_games, aes(x=season, y=pts)) +
   labs(x = "Season", y = "Points", title = "Points per Season by Post-Season") +
   facet_wrap(~post_season)
 ```
-\
-
+\  
+## Box Plots and Numerical Summaries of Field Goal Percentage
 We can also run the same analysis on field goal percentage. Field goal percentage can be used to see how efficient a player is, since point could just be the result of taking more shots and not making a greater proportion of shots. This analysis shows that Tatum's field goal percentage in the regular season has decreased slightly since his first season, and his most recent year has been his worst and least consistent yet. However, during the post-season his field goal percentage was one of his best, with a moderate level of variability compared to previous seasons.
 ```{r}
 tatum_all_games %>% group_by(post_season, season) %>% summarize(mean = mean(fg_pct, na.rm = TRUE), sd = sd(fg_pct, na.rm = TRUE))
@@ -434,8 +440,8 @@ ggplot(tatum_all_games, aes(x=season, y=fg_pct)) +
   labs(x = "Season", y = "Points", title = "FG% per Season by Post-Season") +
   facet_wrap(~post_season)
 ```
-\
-
+\  
+## Density Plots and Numerical Summaries of 3-Point Field Goal Percentage
 The below code runs the same analysis on 3-point field goal percentage (a important part of Tatum's game), but swaps out the box plots for density plots. The summary statistics show that Tatum's regular season 3-point percentage has been trending downward, but his 3-point percentage in the playoffs has been trending upward. This supports the idea that Tatum elevates his game during the playoffs.
 ```{r}
 tatum_all_games %>% group_by(post_season, season) %>% summarize(mean = mean(fg3_pct, na.rm = TRUE), sd = sd(fg3_pct, na.rm = TRUE))
@@ -445,8 +451,8 @@ ggplot(tatum_all_games, aes(x=fg3_pct)) +
   scale_fill_discrete(name="Post-Season") +
   facet_wrap(~season)
 ```
-\
-
+\  
+## Assists-to-Turnovers Scatterplots
 Another important part of any NBA players game is facilitation and ball security. This is commonly analyzed with the assist-to-turnover ratio, which looks at how many assist a player gets by passing another player the ball who then scores, compared to how many times the player loses the ball to the opposing team. The below code creates several scatterplots by season, with turnovers on the x-axis and assists on the y-axis. These plots show that as Tatum's assist numbers increased over his career, generally so did his turnovers, which means there may still be room for improvement in his ball security. However, in his most recent post-season Tatum did not have any games with over 5 turnovers, which does show some increased ball security in the post-season as well as seasonal improvement.
 ```{r}
 ggplot(tatum_all_games, aes(x=ast, y=turnover)) + 
@@ -455,8 +461,8 @@ ggplot(tatum_all_games, aes(x=ast, y=turnover)) +
   scale_color_discrete(name="Post-Season") +
   facet_wrap(~ season)
 ```
-\
-
+\  
+## Spider Plot of Average Stats
 Finally, lets look at some average statistics not yet discussed that can be neatly displayed together. The below code calls the `player_season_stats` function and uses that data to create a spider plot by season of average field goal makes, 3-point makes, 3-point attempts, free-throw makes, free-throw attempts, assist, rebounds, and turnovers. These statistics were chosen because they all have similar scales that can be shown on the plot cleanly. This chart shows that in most statistics Tatum has improved on average from season to season. He has also increase his number of attempts, which could be the reason why some of his percentages have decreased as shown previously. For example, Tatum's 3-point makes took a big jump in his third year, as did his attempts, but his makes have not dramatically improved since then even though his attempts continue to increase.
 ```{r}
 tatum_season_avgs <- player_season_stats(first_name = "jayson", last_name = "tatum", season=c(2017:2023), stats = c("fgm", "fg3m", "fg3a", "ftm", "fta", "ast", "reb", "turnover"))
@@ -466,8 +472,8 @@ ggradar(tatum_season_avgs, group.point.size = 2, values.radar = c("0", "","10"),
 
 ## Conclusion
 The above exploratory data analysis shows that Jayson Tatum has consistently improved his statistics overall in the regular season, with the most notable improvements being in average points, assists, rebounds, and playoff 3-point percentage. It also shows that Tatum has a strong tendency to elevate his game during the post-season, especially in his two most recent seasons.  
-\
+\    
 There are, however, some areas for improvement. Facilitation with ball security is one, although he has shown improvements in this metric during the playoffs. Consistency from game to game in the regular season is another area that could be improved, although this is not as much of an issue in the playoffs.
 
-\
+\  
 Another area of potential improvement would be regular season 3-point percentage. A way to improve this may be better shot selection as opposed to increasing 3-point shot attempts. It may be wise to go to the hoop more as opposed to shooting more 3-pointers. Driving to the basket can draw more fouls, and as Tatum's average free-throw attempts have increased from season-to-season, his average free-throw makes have increase at a commensurate rate.

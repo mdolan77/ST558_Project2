@@ -3,4 +3,8 @@ rmarkdown::render("C:/Users/dolan/Desktop/NC State Grad Program/ST558/Project 2/
                   output_format = "github_document",
                   output_file = "C:/Users/dolan/Desktop/NC State Grad Program/ST558/Project 2/ST558_Project2/README.md",
                   output_options = list(
-                  html_preview=FALSE))
+                  html_preview=FALSE,
+                  toc = TRUE,
+                  toc_depth = 2,
+                  number_sections = FALSE,
+                  df_print = "paged"))
